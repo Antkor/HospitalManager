@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Patient {
 
@@ -82,5 +83,8 @@ public class Patient {
 	}
 	public Patient search(int amka){
 		return (this.connector.search(amka));
+	}
+	public ArrayList<Patient> getData(){
+		return PatientList.getPatients();
 	}
 }
