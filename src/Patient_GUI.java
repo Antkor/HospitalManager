@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
 
 public class Patient_GUI {
 
@@ -29,7 +30,9 @@ public class Patient_GUI {
 	private JTextField text_Phone;
 	private JTextField text_Email;
 	private JTextField text_Age;
-	private JTextField text_Info;
+	private JComboBox combo_sex;
+	private JComboBox combo_blood;
+	private JTextArea text_Info;
 
 	/**
 	 * Launch the application.
@@ -134,18 +137,15 @@ public class Patient_GUI {
 		text_Age.setBounds(103, 242, 115, 20);
 		frame.getContentPane().add(text_Age);
 		
-		text_Info = new JTextField();
-		text_Info.setColumns(10);
-		text_Info.setBounds(103, 356, 192, 95);
-		frame.getContentPane().add(text_Info);
-		
-		JComboBox combo_sex = new JComboBox();
-		combo_sex.setBounds(113, 280, 40, 20);
+		combo_sex = new JComboBox();
+		combo_sex.setBounds(113, 280, 46, 20);
 		frame.getContentPane().add(combo_sex);
+		combo_sex.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "È" }));
 		
-		JComboBox combo_blood = new JComboBox();
-		combo_blood.setBounds(113, 318, 40, 20);
+		combo_blood = new JComboBox();
+		combo_blood.setBounds(113, 318, 46, 20);
 		frame.getContentPane().add(combo_blood);
+		combo_blood.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-" }));
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(341, 38, 134, 248);
@@ -165,6 +165,7 @@ public class Patient_GUI {
 		btn_Save.setBounds(24, 44, 89, 23);
 		panel.add(btn_Save);
 		
+		
 		JButton btn_New = new JButton("New");
 		btn_New.setBounds(24, 89, 89, 23);
 		panel.add(btn_New);
@@ -174,6 +175,7 @@ public class Patient_GUI {
 		panel.add(btn_Delete);
 		btn_Save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				saveAction();
 			}
 		});
 		
@@ -187,6 +189,10 @@ public class Patient_GUI {
 		text_Amka.setBounds(92, 11, 115, 20);
 		panel_1.add(text_Amka);
 		text_Amka.setColumns(10);
+		
+		text_Info = new JTextArea();
+		text_Info.setBounds(92, 347, 219, 95);
+		panel_1.add(text_Info);
 				           
 	}
 
@@ -225,6 +231,13 @@ private void saveAction() {
 	           JOptionPane.showMessageDialog( null, "Please enter Phone");
 	           return;
 	            }	
-		
+        int amka= Integer.parseInt(text_Amka.getText());
+        int phone = Integer.parseInt(text_Phone.getText());
+        int age =  Integer.parseInt(text_Age.getText());
+        String sex = String.valueOf(combo_sex.getSelectedItem());
+        String blood = String.valueOf(combo_blood.getSelectedItem());
+        Patient p = new Patient( amka, text_Sname.getText(), text_Name.getText(), text_Address.getText(), phone, text_Email.getText(), age,sex,blood, text_Info.getText());
+		System.out.println(sex);
+		System.out.println(blood);
 	}
 }
