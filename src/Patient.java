@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Patient {
 
@@ -11,7 +12,24 @@ public class Patient {
 	private String gender;
 	private String bloodType;
 	private String info;
+	private Connector connector;
 	
+	public Patient(int amka, String lastname, String firstname, String address,
+			int telephone, String email, int age, String gender,
+			String bloodType, String info) {
+		//super();
+		this.amka = amka;
+		this.lastname = lastname;
+		this.firstname = firstname;
+		this.address = address;
+		this.telephone = telephone;
+		this.email = email;
+		this.age = age;
+		this.gender = gender;
+		this.bloodType = bloodType;
+		this.info = info;
+		
+	}
 	public int getAmka() {
 		return amka;
 	}
@@ -72,5 +90,17 @@ public class Patient {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	
+	public void save(){
+		connector = new Connector(this);
+		this.connector.save();
+	}
+	public void delete(){
+		this.connector.delete();
+	}
+	public Patient search(int amka){
+		return (this.connector.search(amka));
+	}
+	public ArrayList<Patient> getData(){
+		return PatientList.getPatients();
+	}
 }
