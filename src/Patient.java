@@ -14,6 +14,22 @@ public class Patient {
 	private String info;
 	private Connector connector;
 	
+	public Patient(int amka, String lastname, String firstname, String address,
+			int telephone, String email, int age, String gender,
+			String bloodType, String info) {
+		//super();
+		this.amka = amka;
+		this.lastname = lastname;
+		this.firstname = firstname;
+		this.address = address;
+		this.telephone = telephone;
+		this.email = email;
+		this.age = age;
+		this.gender = gender;
+		this.bloodType = bloodType;
+		this.info = info;
+		
+	}
 	public int getAmka() {
 		return amka;
 	}
