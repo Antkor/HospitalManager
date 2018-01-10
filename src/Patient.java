@@ -11,6 +11,7 @@ public class Patient {
 	private String gender;
 	private String bloodType;
 	private String info;
+	private Connector connector;
 	
 	public int getAmka() {
 		return amka;
@@ -72,5 +73,11 @@ public class Patient {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	
+	public void save(){
+		connector = new Connector(this);
+		this.connector.save();
+	}
+	public void delete(){
+		this.connector.delete();
+	}
 }
