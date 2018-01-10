@@ -9,7 +9,17 @@ public class Doctor {
 	private String department;
 	private Connector connector;
 	
-	
+	public Doctor(int arMitrwou, String lastname, String firstname,
+			int telephone, String speciality, String department) {
+		
+		this.arMitrwou = arMitrwou;
+		this.lastname = lastname;
+		this.firstname = firstname;
+		this.telephone = telephone;
+		this.speciality = speciality;
+		this.department = department;
+		
+	}
 	public int getArMitrwou() {
 		return arMitrwou;
 	}
@@ -53,7 +63,7 @@ public class Doctor {
 	public void delete(){
 		this.connector.delete();
 	}
-	public Patient search(int arMitrwou){
+	public Doctor search(int arMitrwou){
 		return (this.connector.search(arMitrwou));
 	}
 
