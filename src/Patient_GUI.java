@@ -1,4 +1,5 @@
 import java.awt.EventQueue;
+import java.awt.HeadlessException;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -8,24 +9,27 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import java.awt.ScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class Patient_GUI {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_9;
+	private JTextField text_Amka;
+	private JTextField text_Sname;
+	private JTextField text_Name;
+	private JTextField text_Address;
+	private JTextField text_Phone;
+	private JTextField text_Email;
+	private JTextField text_Age;
+	private JTextField text_Info;
 
 	/**
 	 * Launch the application.
@@ -88,7 +92,7 @@ public class Patient_GUI {
 		label_5.setBounds(20, 245, 46, 14);
 		frame.getContentPane().add(label_5);
 		
-		JLabel label_6 = new JLabel("\u03A6\u03CD\u03BB\u03BB\u03BF");
+		JLabel label_6 = new JLabel("\u03A6\u03CD\u03BB\u03BF");
 		label_6.setBounds(20, 283, 46, 14);
 		frame.getContentPane().add(label_6);
 		
@@ -100,48 +104,48 @@ public class Patient_GUI {
 		label_8.setBounds(20, 356, 73, 14);
 		frame.getContentPane().add(label_8);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(103, 61, 115, 20);
-		frame.getContentPane().add(textField_1);
+		text_Sname = new JTextField();
+		text_Sname.setColumns(10);
+		text_Sname.setBounds(103, 61, 115, 20);
+		frame.getContentPane().add(text_Sname);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(103, 101, 115, 20);
-		frame.getContentPane().add(textField_2);
+		text_Name = new JTextField();
+		text_Name.setColumns(10);
+		text_Name.setBounds(103, 101, 115, 20);
+		frame.getContentPane().add(text_Name);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(103, 136, 115, 20);
-		frame.getContentPane().add(textField_3);
+		text_Address = new JTextField();
+		text_Address.setColumns(10);
+		text_Address.setBounds(103, 136, 115, 20);
+		frame.getContentPane().add(text_Address);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(103, 171, 115, 20);
-		frame.getContentPane().add(textField_4);
+		text_Phone = new JTextField();
+		text_Phone.setColumns(10);
+		text_Phone.setBounds(103, 171, 115, 20);
+		frame.getContentPane().add(text_Phone);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(103, 208, 115, 20);
-		frame.getContentPane().add(textField_5);
+		text_Email = new JTextField();
+		text_Email.setColumns(10);
+		text_Email.setBounds(103, 208, 115, 20);
+		frame.getContentPane().add(text_Email);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(103, 242, 115, 20);
-		frame.getContentPane().add(textField_6);
+		text_Age = new JTextField();
+		text_Age.setColumns(10);
+		text_Age.setBounds(103, 242, 115, 20);
+		frame.getContentPane().add(text_Age);
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(103, 356, 192, 95);
-		frame.getContentPane().add(textField_9);
+		text_Info = new JTextField();
+		text_Info.setColumns(10);
+		text_Info.setBounds(103, 356, 192, 95);
+		frame.getContentPane().add(text_Info);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(113, 280, 40, 20);
-		frame.getContentPane().add(comboBox);
+		JComboBox combo_sex = new JComboBox();
+		combo_sex.setBounds(113, 280, 40, 20);
+		frame.getContentPane().add(combo_sex);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(113, 318, 40, 20);
-		frame.getContentPane().add(comboBox_1);
+		JComboBox combo_blood = new JComboBox();
+		combo_blood.setBounds(113, 318, 40, 20);
+		frame.getContentPane().add(combo_blood);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(341, 38, 134, 248);
@@ -149,26 +153,26 @@ public class Patient_GUI {
 		panel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 		panel.setLayout(null);
 		
-		JButton btnNewButton_4 = new JButton("Get Data");
-		btnNewButton_4.addActionListener(new ActionListener() {
+		JButton btn_GetData = new JButton("Get Data");
+		btn_GetData.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_4.setBounds(24, 189, 89, 23);
-		panel.add(btnNewButton_4);
+		btn_GetData.setBounds(24, 189, 89, 23);
+		panel.add(btn_GetData);
 		
-		JButton btnNewButton_1 = new JButton("Save");
-		btnNewButton_1.setBounds(24, 44, 89, 23);
-		panel.add(btnNewButton_1);
+		JButton btn_Save = new JButton("Save");
+		btn_Save.setBounds(24, 44, 89, 23);
+		panel.add(btn_Save);
 		
-		JButton btnNewButton_2 = new JButton("New");
-		btnNewButton_2.setBounds(24, 89, 89, 23);
-		panel.add(btnNewButton_2);
+		JButton btn_New = new JButton("New");
+		btn_New.setBounds(24, 89, 89, 23);
+		panel.add(btn_New);
 		
-		JButton btnNewButton_3 = new JButton("Delete");
-		btnNewButton_3.setBounds(24, 139, 89, 23);
-		panel.add(btnNewButton_3);
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btn_Delete = new JButton("Delete");
+		btn_Delete.setBounds(24, 139, 89, 23);
+		panel.add(btn_Delete);
+		btn_Save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
@@ -179,10 +183,48 @@ public class Patient_GUI {
 		panel_1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 		panel_1.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(92, 11, 115, 20);
-		panel_1.add(textField);
-		textField.setColumns(10);
+		text_Amka = new JTextField();
+		text_Amka.setBounds(92, 11, 115, 20);
+		panel_1.add(text_Amka);
+		text_Amka.setColumns(10);
+				           
+	}
+
+private void saveAction() {
+	
+    if (text_Name.getText().equals("")) {
+        JOptionPane.showMessageDialog(null,"Please enter name");
+        return;
+         }
+     if (text_Sname.getText().equals("")) {
+        JOptionPane.showMessageDialog(null, "Please enter  lastname");          
+        return;
+         }
+     
+      if (text_Amka.equals("")) {
+        JOptionPane.showMessageDialog( null, "Please enter A.M.K.A");
+        return;
+         }
+       if (text_Address.getText().equals("")) {
+        JOptionPane.showMessageDialog( null, "Please enter Address");
+        return;
+         }
+        if (text_Email.getText().equals("")) {
+        JOptionPane.showMessageDialog( null, "Please enter email");
+        return;
+         }
+        if (text_Age.getText().equals("")) {
+	           JOptionPane.showMessageDialog( null, "Please enter Age");
+	           return;
+	            }
+        if (text_Info.getText().equals("")) {
+	           JOptionPane.showMessageDialog( null, "Please enter Information");
+	           return;
+	            }
+        if (text_Phone.getText().equals("")) {
+	           JOptionPane.showMessageDialog( null, "Please enter Phone");
+	           return;
+	            }	
 		
 	}
 }

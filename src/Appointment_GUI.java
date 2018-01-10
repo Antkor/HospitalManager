@@ -10,7 +10,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 import java.awt.Color;
 
-public class Appoiment_GUI {
+public class Appointment_GUI {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -28,7 +28,7 @@ public class Appoiment_GUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Appoiment_GUI window = new Appoiment_GUI();
+					Appointment_GUI window = new Appointment_GUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class Appoiment_GUI {
 	/**
 	 * Create the application.
 	 */
-	public Appoiment_GUI() {
+	public Appointment_GUI() {
 		initialize();
 	}
 
