@@ -15,6 +15,7 @@ import java.awt.ScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
+import java.io.Console;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
@@ -239,5 +240,6 @@ private void saveAction() {
         Patient p = new Patient(amka, text_Sname.getText(), text_Name.getText(), text_Address.getText(), phone, text_Email.getText(), age, sex, blood, "insurance", text_Info.getText());
 		System.out.println(sex);
 		System.out.println(blood);
+
 	}
 }
