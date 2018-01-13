@@ -155,9 +155,8 @@ public class Doctor_GUI {
 		           return;
 		            }	
 	        int arMitr= Integer.parseInt(text_ArMitr.getText());
-	        int phone = Integer.parseInt(text_Phone.getText());
 	        String sp = String.valueOf(combo_Sp.getSelectedItem());
 	        String dep = String.valueOf(combo_dep.getSelectedItem());
-	        Doctor d = new Doctor(arMitr, text_Name.getText(), text_Sname.getText(), phone, sp , dep);
+	        Doctor d = new Doctor(arMitr, text_Name.getText(), text_Sname.getText(), text_Phone.getText(), sp , Integer.parseInt(dep));
 		}
 }

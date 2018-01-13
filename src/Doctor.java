@@ -1,7 +1,7 @@
 
 public class Doctor {
 
-	private String arMitrwou;
+	private int arMitrwou;
 	private String lastname;
 	private String firstname;
 	private String telephone;
@@ -9,7 +9,7 @@ public class Doctor {
 	private int department;
 	private DbConnector connector;
 	
-	public Doctor(String arMitrwou, String lastname, String firstname,
+	public Doctor(int arMitrwou, String lastname, String firstname,
 			String telephone, String speciality, int department) {
 		
 		this.arMitrwou = arMitrwou;
@@ -20,10 +20,10 @@ public class Doctor {
 		this.department = department;
 		
 	}
-	public String getArMitrwou() {
+	public int getArMitrwou() {
 		return arMitrwou;
 	}
-	public void setArMitrwou(String arMitrwou) {
+	public void setArMitrwou(int arMitrwou) {
 		this.arMitrwou = arMitrwou;
 	}
 	public String getLastname() {
