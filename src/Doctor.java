@@ -7,7 +7,7 @@ public class Doctor {
 	private int telephone;
 	private String speciality;
 	private String department;
-	private Connector connector;
+	private DbConnector connector;
 	
 	public Doctor(int arMitrwou, String lastname, String firstname,
 			int telephone, String speciality, String department) {
@@ -56,15 +56,15 @@ public class Doctor {
 	public void setDepartment(String department) {
 		this.department = department;
 	}
-	public void save(){
-		connector = new Connector(this);
-		this.connector.save();
-	}
-	public void delete(){
-		this.connector.delete();
-	}
-	public Doctor search(int arMitrwou){
-		return (this.connector.search(arMitrwou));
-	}
+//	public void save(){
+//		connector = new Connector(this);
+//		this.connector.save();
+//	}
+//	public void delete(){
+//		this.connector.delete();
+//	}
+//	public Doctor search(int arMitrwou){
+//		return (this.connector.search(arMitrwou));
+//	}
 
 }

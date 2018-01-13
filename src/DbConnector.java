@@ -38,20 +38,24 @@ public class DbConnector {
 
 	public ArrayList<Patient> getAllPatients() {
 		ArrayList<Patient> patients = new ArrayList<Patient>();
+		openConnection();
 		try {		
 			ResultSet rs = st.executeQuery("select * from patient");
 			
 			while(rs.next()) {
-				Patient p = new Patient(" ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
+				Patient p = new Patient(rs.getString("amka"), rs.getString("lastname"), rs.getString("firsname"), rs.getString("address"), 
+										rs.getString("telephone"), rs.getString("email"), rs.getInt("age"), rs.getString("gender"), 
+										rs.getString("bloodtype"), rs.getString("insurance"), rs.getString("info"));
 				patients.add(p);
-				System.out.println("Onoma: " + rs.getString("name") + " Epitheto: " + rs.getString("surname") + " Asfaleia: " + rs.getString("insurance")
-				+ " Tilefono: " + rs.getString("telephone") + "\n Pathisi: " + rs.getString("notes"));
 			}
 		}
 		catch (Exception e) {
-			
+			return null;
 		}
-		return null;
+		finally {
+			closeConnection();
+		}
+		return patients;
 	}
 
 }

@@ -2,21 +2,22 @@ import java.util.ArrayList;
 
 public class Patient {
 
-	private int amka;
+	private String amka;
 	private String lastname;
 	private String firstname;
 	private String address;
-	private int telephone;
+	private String telephone;
 	private String email;
 	private int age;
 	private String gender;
 	private String bloodType;
+	private String insurance;
 	private String info;
-	private Connector connector;
+	private DbConnector connector;
 	
-	public Patient(int amka, String lastname, String firstname, String address,
-			int telephone, String email, int age, String gender,
-			String bloodType, String info) {
+	public Patient(String amka, String lastname, String firstname, String address,
+			String telephone, String email, int age, String gender,
+			String bloodType, String insurance, String info) {
 		//super();
 		this.amka = amka;
 		this.lastname = lastname;
@@ -30,10 +31,10 @@ public class Patient {
 		this.info = info;
 		
 	}
-	public int getAmka() {
+	public String getAmka() {
 		return amka;
 	}
-	public void setAmka(int amka) {
+	public void setAmka(String amka) {
 		this.amka = amka;
 	}
 	public String getLastname() {
@@ -54,10 +55,10 @@ public class Patient {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public int getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
-	public void setTelephone(int telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 	public String getEmail() {
@@ -78,6 +79,12 @@ public class Patient {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public String getInsurance() {
+		return bloodType;
+	}
+	public void setInsurance(String insurance) {
+		this.insurance = insurance;
+	}
 	public String getBloodType() {
 		return bloodType;
 	}
@@ -90,16 +97,16 @@ public class Patient {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	public void save(){
-		connector = new Connector(this);
-		this.connector.save();
-	}
-	public void delete(){
-		this.connector.delete();
-	}
-	public Patient search(int amka){
-		return (this.connector.search(amka));
-	}
+//	public void save(){
+//		connector = new Connector(this);
+//		this.connector.save();
+//	}
+//	public void delete(){
+//		this.connector.delete();
+//	}
+//	public Patient search(int amka){
+//		return (this.connector.search(amka));
+//	}
 	public ArrayList<Patient> getData(){
 		return PatientList.getPatients();
 	}

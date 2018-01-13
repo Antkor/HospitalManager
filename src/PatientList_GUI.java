@@ -70,11 +70,11 @@ public class PatientList_GUI {
 		ArrayList<Patient> patients = new ArrayList<Patient>();
 		patients = PatientList.getPatients();
 		for (int i = 0; i < patients.size(); i++){
-			int amka = patients.get(i).getAmka();
+			String amka = patients.get(i).getAmka();
 			String ln = patients.get(i).getLastname();
 			String fn = patients.get(i).getFirstname();
 			String address = patients.get(i).getAddress();
-			int ph = patients.get(i).getTelephone();
+			String ph = patients.get(i).getTelephone();
 			String Email = patients.get(i).getEmail();
 			int age = patients.get(i).getAge();
 			String sex = patients.get(i).getGender();

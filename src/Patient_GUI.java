@@ -231,12 +231,12 @@ private void saveAction() {
 	           JOptionPane.showMessageDialog( null, "Please enter Phone");
 	           return;
 	            }	
-        int amka= Integer.parseInt(text_Amka.getText());
-        int phone = Integer.parseInt(text_Phone.getText());
+        String amka= text_Amka.getText();
+        String phone = text_Phone.getText();
         int age =  Integer.parseInt(text_Age.getText());
         String sex = String.valueOf(combo_sex.getSelectedItem());
         String blood = String.valueOf(combo_blood.getSelectedItem());
-        Patient p = new Patient( amka, text_Sname.getText(), text_Name.getText(), text_Address.getText(), phone, text_Email.getText(), age,sex,blood, text_Info.getText());
+        Patient p = new Patient(amka, text_Sname.getText(), text_Name.getText(), text_Address.getText(), phone, text_Email.getText(), age, sex, blood, "insurance", text_Info.getText());
 		System.out.println(sex);
 		System.out.println(blood);
 	}
