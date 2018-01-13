@@ -10,7 +10,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 import java.awt.Color;
 
-public class Appointment_GUI {
+public class Appointment_GUI extends JFrame{
 
 	private JFrame frame;
 	private JTextField textField;
@@ -24,9 +24,8 @@ public class Appointment_GUI {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+
+			public static void run() {
 				try {
 					Appointment_GUI window = new Appointment_GUI();
 					window.frame.setVisible(true);
@@ -34,8 +33,7 @@ public class Appointment_GUI {
 					e.printStackTrace();
 				}
 			}
-		});
-	}
+
 
 	/**
 	 * Create the application.
@@ -51,7 +49,7 @@ public class Appointment_GUI {
 		frame = new JFrame();
 		frame.setTitle("\u0394\u03B9\u03B1\u03C7\u03B5\u03AF\u03C1\u03B7\u03C3\u03B7 \u03B5\u03C0\u03B9\u03C3\u03BA\u03AD\u03C8\u03B5\u03C9\u03BD");
 		frame.setBounds(100, 100, 466, 420);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel_1 = new JPanel();

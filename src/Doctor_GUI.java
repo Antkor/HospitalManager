@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Doctor_GUI {
+public class Doctor_GUI extends JFrame {
 
 	private JFrame frame;
 	private JTextField text_Name;
@@ -23,9 +23,7 @@ public class Doctor_GUI {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+			public static void run() {
 				try {
 					Doctor_GUI window = new Doctor_GUI();
 					window.frame.setVisible(true);
@@ -33,8 +31,6 @@ public class Doctor_GUI {
 					e.printStackTrace();
 				}
 			}
-		});
-	}
 
 	/**
 	 * Create the application.
@@ -50,7 +46,7 @@ public class Doctor_GUI {
 		frame = new JFrame();
 		frame.setTitle("\u0394\u03B9\u03B1\u03C7\u03B5\u03AF\u03C1\u03B9\u03C3\u03B7 \u0399\u03B1\u03C4\u03C1\u03CE\u03BD");
 		frame.setBounds(100, 100, 387, 363);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();

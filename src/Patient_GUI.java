@@ -20,7 +20,7 @@ import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 
-public class Patient_GUI {
+public class Patient_GUI extends JFrame {
 
 	private JFrame frame;
 	private JTextField text_Amka;
@@ -37,9 +37,9 @@ public class Patient_GUI {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+
+		
+			public static void run() {
 				try {
 					Patient_GUI window = new Patient_GUI();
 					window.frame.setVisible(true);
@@ -47,8 +47,7 @@ public class Patient_GUI {
 					e.printStackTrace();
 				}
 			}
-		});
-	}
+
 
 	/**
 	 * Create the application.
@@ -63,7 +62,7 @@ public class Patient_GUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 513, 530);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("Διαχείριση ασθενών");
 		
