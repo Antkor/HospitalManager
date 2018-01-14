@@ -8,15 +8,10 @@ public class Doctor {
 	private String speciality;
 	private int department;
 	private DbConnector connector;
-	
-<<<<<<< HEAD
-	public Doctor(int arMitrwou, String lastname, String firstname,
+
+	public Doctor(int String, String lastname, String firstname,
 			String telephone, String speciality, int department) {
-=======
-	public Doctor(String arMitrwou, String lastname, String firstname,
-			int telephone, String speciality, String department) {
->>>>>>> develop1
-		
+
 		this.arMitrwou = arMitrwou;
 		this.lastname = lastname;
 		this.firstname = firstname;

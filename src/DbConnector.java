@@ -79,14 +79,14 @@ public class DbConnector {
 		return doctors;
 	}
 	
-	public ArrayList<Patient> getAllAppointments() {
-		ArrayList<Patient> appointments = new ArrayList<Patient>();
+	public ArrayList<Appointment> getAllAppointments() {
+		ArrayList<Appointment> appointments = new ArrayList<Appointment>();
 		openConnection();
 		try {		
 			ResultSet rs = st.executeQuery("select * from appointment");
 			
 			while(rs.next()) {
-				Appointment a = new Appointment(rs.getDate("date"), rs.getString("notes"), rs.getInt("patient_amka"), rs.getInt("doctor_id"));
+				Appointment a = new Appointment(rs.getDate("date"), rs.getString("patient_amka"), rs.getInt("doctor_id"), rs.getString("notes"));
 				appointments.add(a);
 			}
 		}

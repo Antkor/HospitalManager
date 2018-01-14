@@ -7,11 +7,11 @@ public class Appointment {
 	private Date day;
 	private Time time;
 	private String amkaPatient;
-	private String arMitrwoyDoctor;
+	private int arMitrwoyDoctor;
 	private String info;
 	private DbConnector connector;
 	
-	public Appointment(Date day, Time time, String amkaPatient, String arMitrwoyDoctor, String info) {
+	public Appointment(Date day, String amkaPatient, int arMitrwoyDoctor, String info) {
 		this.day = day;
 		this.time = time;
 		this.amkaPatient = amkaPatient;
@@ -36,10 +36,10 @@ public class Appointment {
 	public void setAmkaPatient(String amkaPatient) {
 		this.amkaPatient = amkaPatient;
 	}
-	public String getArMitrwoyDoctor() {
+	public int getArMitrwoyDoctor() {
 		return arMitrwoyDoctor;
 	}
-	public void setArMitrwoyDoctor(String arMitrwoyDoctor) {
+	public void setArMitrwoyDoctor(int arMitrwoyDoctor) {
 		this.arMitrwoyDoctor = arMitrwoyDoctor;
 	}
 	public String getInfo() {
