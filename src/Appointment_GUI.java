@@ -3,23 +3,35 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JTextPane;
 import javax.swing.JTextField;
+import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.border.TitledBorder;
+import java.text.ParseException;
+import javafx.scene.control.ComboBox;
+
 import javax.swing.UIManager;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
 public class Appointment_GUI extends JFrame{
 
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	private JTextField text_Date;
+	private JTextField text_AMKA;
+	private JTextField text_AM;
+	private JTextField text_INFO;
+	private JComboBox comboBox;
 
 	/**
 	 * Launch the application.
@@ -83,6 +95,11 @@ public class Appointment_GUI extends JFrame{
 		panel.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Save");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton.setBounds(8, 16, 89, 23);
 		panel.add(btnNewButton);
 		
@@ -94,30 +111,25 @@ public class Appointment_GUI extends JFrame{
 		btnNewButton_2.setBounds(206, 16, 89, 23);
 		panel.add(btnNewButton_2);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(99, 60, 86, 20);
-		panel.add(textField_2);
-		textField_2.setColumns(10);
+		text_Date = new JTextField();
+		text_Date.setBounds(99, 60, 97, 20);
+		panel.add(text_Date);
+		text_Date.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(99, 91, 86, 20);
-		panel.add(textField_3);
-		textField_3.setColumns(10);
+		text_AMKA = new JTextField();
+		text_AMKA.setBounds(99, 121, 97, 20);
+		panel.add(text_AMKA);
+		text_AMKA.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(99, 121, 86, 20);
-		panel.add(textField_4);
-		textField_4.setColumns(10);
+		text_AM = new JTextField();
+		text_AM.setBounds(99, 152, 97, 20);
+		panel.add(text_AM);
+		text_AM.setColumns(10);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(99, 152, 86, 20);
-		panel.add(textField_5);
-		textField_5.setColumns(10);
-		
-		textField_6 = new JTextField();
-		textField_6.setBounds(101, 185, 183, 168);
-		panel.add(textField_6);
-		textField_6.setColumns(10);
+		text_INFO = new JTextField();
+		text_INFO.setBounds(101, 185, 183, 168);
+		panel.add(text_INFO);
+		text_INFO.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("\u0397\u03BC\u03AD\u03C1\u03B1");
 		lblNewLabel.setBounds(6, 68, 46, 14);
@@ -138,5 +150,48 @@ public class Appointment_GUI extends JFrame{
 		JLabel lblNewLabel_4 = new JLabel("\u03A0\u03BB\u03B7\u03C1\u03BF\u03C6\u03BF\u03C1\u03AF\u03B5\u03C2");
 		lblNewLabel_4.setBounds(6, 188, 66, 14);
 		panel.add(lblNewLabel_4);
+		
+		comboBox = new JComboBox();
+		comboBox.setBounds(99, 91, 97, 19);
+		panel.add(comboBox);
+		comboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "8:00-8:30", "8:30-9:00", "9:00-9:30", "9:30-10:00",
+				                                               "10:00-10:30", "10:30-11:00", "11:00-11:30", "11:30-12:00", "12:00-12:30", "12:30-13:00"}));
+		
+		JLabel lblNewLabel_5 = new JLabel("yyyy-MM-dd");
+		lblNewLabel_5.setBounds(206, 63, 78, 14);
+		panel.add(lblNewLabel_5);
 	}
+	
+private void saveAction() {
+		
+	    if (text_AM.getText().equals("")) {
+	        JOptionPane.showMessageDialog(null,"Please enter Registration Number");
+	        return;
+	         }
+	     if (text_AMKA.getText().equals("")) {
+	        JOptionPane.showMessageDialog(null, "Please enter  AMKA");          
+	        return;
+	         }
+	     
+	      if (text_Date.equals("")) {
+	        JOptionPane.showMessageDialog( null, "Please enter Date");
+	        return;
+	         }
+	       
+	        if (text_INFO.getText().equals("")) {
+		           JOptionPane.showMessageDialog( null, "Please enter Information");
+		           return;
+		            }	
+	        String string = text_Date.getText();
+	        DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+	        java.util.Date date = null;
+			try {
+				date = format.parse(string);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        String time = String.valueOf(comboBox.getSelectedItem());
+	        Appointment d = new Appointment(date, time ,text_AMKA.getText(), text_AM.getText(), text_INFO.getText());
+		}
 }

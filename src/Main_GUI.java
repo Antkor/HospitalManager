@@ -55,7 +55,7 @@ public class Main_GUI {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Επιλογές", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(16, 11, 173, 222);
+		panel.setBounds(10, 11, 185, 222);
 		frmHospitalManager.getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -66,7 +66,7 @@ public class Main_GUI {
 				
 			}
 		});
-		btn_patient.setBounds(6, 16, 161, 23);
+		btn_patient.setBounds(6, 16, 169, 23);
 		panel.add(btn_patient);
 		
 		JButton btn_App = new JButton("\u0394\u03B9\u03B1\u03C7\u03B5\u03AF\u03C1\u03B9\u03C3\u03B7 \u0395\u03C0\u03B9\u03C3\u03BA\u03AD\u03C8\u03B5\u03C9\u03BD");
@@ -75,7 +75,7 @@ public class Main_GUI {
 				Appointment_GUI.run();
 			}
 		});
-		btn_App.setBounds(6, 50, 161, 23);
+		btn_App.setBounds(6, 50, 169, 23);
 		panel.add(btn_App);
 		
 		JButton btn_Doctor = new JButton("\u0394\u03B9\u03B1\u03C7\u03B5\u03AF\u03C1\u03B9\u03C3\u03B7 \u0399\u03B1\u03C4\u03C1\u03CE\u03BD");
@@ -84,7 +84,7 @@ public class Main_GUI {
 				Doctor_GUI.run();
 			}
 		});
-		btn_Doctor.setBounds(6, 84, 161, 23);
+		btn_Doctor.setBounds(6, 84, 169, 23);
 		panel.add(btn_Doctor);
 		
 		JButton btn_PattientList = new JButton("\u039B\u03AF\u03C3\u03C4\u03B1 \u0391\u03C3\u03B8\u03B5\u03BD\u03CE\u03BD");
@@ -93,21 +93,26 @@ public class Main_GUI {
 				PatientList_GUI.run();
 			}
 		});
-		btn_PattientList.setBounds(6, 118, 161, 23);
+		btn_PattientList.setBounds(6, 118, 169, 23);
 		panel.add(btn_PattientList);
 		
 		JButton btn_AppList = new JButton("\u039B\u03AF\u03C3\u03C4\u03B1 \u0395\u03C0\u03B9\u03C3\u03BA\u03AD\u03C8\u03B5\u03C9\u03BD");
-		btn_AppList.setBounds(6, 152, 161, 23);
+		btn_AppList.setBounds(6, 152, 169, 23);
 		panel.add(btn_AppList);
 		
 		JButton btn_DoctorList = new JButton("\u039B\u03AF\u03C3\u03C4\u03B1 \u0399\u03B1\u03C4\u03C1\u03CE\u03BD");
-		btn_DoctorList.setBounds(6, 186, 161, 23);
+		btn_DoctorList.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DoctorList_GUI.run();
+			}
+		});
+		btn_DoctorList.setBounds(6, 186, 169, 23);
 		panel.add(btn_DoctorList);
 		
 		JLabel lbl_Image = new JLabel("");
 		lbl_Image.setText("");
 		lbl_Image.setIcon(new ImageIcon(image));
-		lbl_Image.setBounds(198, 11, 531, 253);
+		lbl_Image.setBounds(204, 11, 525, 253);
 		frmHospitalManager.getContentPane().add(lbl_Image);
 	}
 }
