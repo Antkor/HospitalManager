@@ -1,7 +1,7 @@
 
 public class Doctor {
 
-	private int arMitrwou;
+	private String arMitrwou;
 	private String lastname;
 	private String firstname;
 	private String telephone;
@@ -9,8 +9,13 @@ public class Doctor {
 	private int department;
 	private DbConnector connector;
 	
+<<<<<<< HEAD
 	public Doctor(int arMitrwou, String lastname, String firstname,
 			String telephone, String speciality, int department) {
+=======
+	public Doctor(String arMitrwou, String lastname, String firstname,
+			int telephone, String speciality, String department) {
+>>>>>>> develop1
 		
 		this.arMitrwou = arMitrwou;
 		this.lastname = lastname;
@@ -20,10 +25,10 @@ public class Doctor {
 		this.department = department;
 		
 	}
-	public int getArMitrwou() {
+	public String getArMitrwou() {
 		return arMitrwou;
 	}
-	public void setArMitrwou(int arMitrwou) {
+	public void setArMitrwou(String arMitrwou) {
 		this.arMitrwou = arMitrwou;
 	}
 	public String getLastname() {
@@ -63,8 +68,9 @@ public class Doctor {
 //	public void delete(){
 //		this.connector.delete();
 //	}
-//	public Doctor search(int arMitrwou){
-//		return (this.connector.search(arMitrwou));
-//	}
+	public Doctor search(String arMitrwou){
+		connector = new DbConnector();
+		return (this.connector.getDoctorByAm(arMitrwou));
+	}
 
 }

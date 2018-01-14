@@ -19,9 +19,8 @@ public class PatientList_GUI {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+
+			public static void run() {
 				try {
 					PatientList_GUI window = new PatientList_GUI();
 					window.frame.setVisible(true);
@@ -29,8 +28,6 @@ public class PatientList_GUI {
 					e.printStackTrace();
 				}
 			}
-		});
-	}
 
 	/**
 	 * Create the application.
@@ -45,7 +42,7 @@ public class PatientList_GUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		String col[] = {"AMKA","Επόνυμο","Όνομα", "Διεύθυνση", "Τηλέφωνο", "Εmail", "Ηλικία", "Φύλο", "Ομ. Αιμ.", "Info"};
