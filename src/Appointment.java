@@ -2,7 +2,7 @@ import java.sql.Time;
 import java.util.Date;
 
 public class Appointment {
-	
+
 	private Date day;
 	private Time time;
 	private int amkaPatient;
