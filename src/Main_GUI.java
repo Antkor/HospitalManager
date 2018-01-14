@@ -49,7 +49,7 @@ public class Main_GUI {
 		
 		frmHospitalManager = new JFrame();
 		frmHospitalManager.setTitle("Hospital Manager");
-		frmHospitalManager.setBounds(100, 100, 642, 300);
+		frmHospitalManager.setBounds(100, 100, 755, 314);
 		frmHospitalManager.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmHospitalManager.getContentPane().setLayout(null);
 		
@@ -107,7 +107,7 @@ public class Main_GUI {
 		JLabel lbl_Image = new JLabel("");
 		lbl_Image.setText("");
 		lbl_Image.setIcon(new ImageIcon(image));
-		lbl_Image.setBounds(198, 11, 418, 239);
+		lbl_Image.setBounds(198, 11, 531, 253);
 		frmHospitalManager.getContentPane().add(lbl_Image);
 	}
 }
