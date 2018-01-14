@@ -104,9 +104,10 @@ public class Patient {
 //	public void delete(){
 //		this.connector.delete();
 //	}
-//	public Patient search(int amka){
-//		return (this.connector.search(amka));
-//	}
+	public Patient search(String amka){
+	    connector = new DbConnector();
+		return (this.connector.getPatientByAmka(amka));
+	}
 	public ArrayList<Patient> getData(){
 		return PatientList.getPatients();
 	}

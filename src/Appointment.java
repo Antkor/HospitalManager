@@ -1,16 +1,17 @@
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Appointment {
 	
 	private Date day;
 	private Time time;
-	private int amkaPatient;
-	private int arMitrwoyDoctor;
+	private String amkaPatient;
+	private String arMitrwoyDoctor;
 	private String info;
 	private DbConnector connector;
 	
-	public Appointment(Date day, Time time, int amkaPatient, int arMitrwoyDoctor, String info) {
+	public Appointment(Date day, Time time, String amkaPatient, String arMitrwoyDoctor, String info) {
 		this.day = day;
 		this.time = time;
 		this.amkaPatient = amkaPatient;
@@ -29,16 +30,16 @@ public class Appointment {
 	public void setTime(Time time) {
 		this.time = time;
 	}
-	public int getAmkaPatient() {
+	public String getAmkaPatient() {
 		return amkaPatient;
 	}
-	public void setAmkaPatient(int amkaPatient) {
+	public void setAmkaPatient(String amkaPatient) {
 		this.amkaPatient = amkaPatient;
 	}
-	public int getArMitrwoyDoctor() {
+	public String getArMitrwoyDoctor() {
 		return arMitrwoyDoctor;
 	}
-	public void setArMitrwoyDoctor(int arMitrwoyDoctor) {
+	public void setArMitrwoyDoctor(String arMitrwoyDoctor) {
 		this.arMitrwoyDoctor = arMitrwoyDoctor;
 	}
 	public String getInfo() {
@@ -46,6 +47,9 @@ public class Appointment {
 	}
 	public void setInfo(String info) {
 		this.info = info;
+	}
+	public ArrayList<Appointment> getData(){
+		return AppointmentList.getAppointments();
 	}
 	
 }
