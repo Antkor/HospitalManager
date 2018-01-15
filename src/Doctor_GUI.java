@@ -155,4 +155,14 @@ public class Doctor_GUI extends JFrame {
 	        String dep = String.valueOf(combo_dep.getSelectedItem());
 	        Doctor d = new Doctor(arMitr, text_Name.getText(), text_Sname.getText(), text_Phone.getText(), sp , Integer.parseInt(dep));
 		}
+	
+	private void getData() {
+		DbConnector c = new DbConnector();
+		Doctor d = c.getDoctorByAm(Integer.parseInt(text_ArMitr.getText()));
+	    text_Name.setText(d.getFirstname());
+	    text_Sname.setText(d.getLastname());
+	    text_Phone.setText(d.getTelephone());
+		
+		
+	}
 }

@@ -156,6 +156,8 @@ public class Patient_GUI extends JFrame {
 		JButton btn_GetData = new JButton("Get Data");
 		btn_GetData.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
 			}
 		});
 		btn_GetData.setBounds(24, 189, 89, 23);
@@ -239,6 +241,20 @@ private void saveAction() {
         Patient p = new Patient(amka, text_Sname.getText(), text_Name.getText(), text_Address.getText(), phone, text_Email.getText(), age, sex, blood, "insurance", text_Info.getText());
 		System.out.println(sex);
 		System.out.println(blood);
-
 	}
+
+
+private void getData() {
+	DbConnector c = new DbConnector();
+	Patient p = c.getPatientByAmka(text_Amka.getText());
+    text_Address.setText(p.getAddress());
+    text_Age.setText(String.valueOf(p.getAge()));
+    text_Email.setText(p.getEmail());
+    text_Phone.setText(p.getTelephone());
+    text_Info.setText(p.getInfo());
+    text_Sname.setText(p.getLastname());
+    text_Name.setText(p.getFirstname());
+	
+	
+}
 }

@@ -45,7 +45,7 @@ public class Main_GUI {
 	 */
 	private void initialize() {
 		
-		image = new ImageIcon(this.getClass().getResource("/HospMan.jpg")).getImage();
+		//image = new ImageIcon(this.getClass().getResource("/HospMan.jpg")).getImage();
 		
 		frmHospitalManager = new JFrame();
 		frmHospitalManager.setTitle("Hospital Manager");
@@ -116,7 +116,7 @@ public class Main_GUI {
 		
 		JLabel lbl_Image = new JLabel("");
 		lbl_Image.setText("");
-		lbl_Image.setIcon(new ImageIcon(image));
+		//lbl_Image.setIcon(new ImageIcon(image));
 		lbl_Image.setBounds(204, 11, 525, 253);
 		frmHospitalManager.getContentPane().add(lbl_Image);
 	}

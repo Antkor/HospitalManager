@@ -11,7 +11,8 @@ public class Appointment {
 	private String info;
 	private DbConnector connector;
 	
-	public Appointment(Date day, String time, String amkaPatient, String arMitrwoyDoctor, String info) {
+
+	public Appointment(Date day, String time, String amkaPatient, int arMitrwoyDoctor, String info) {
 		this.day = day;
 		this.time = time;
 		this.amkaPatient = amkaPatient;
@@ -23,12 +24,6 @@ public class Appointment {
 	}
 	public void setDay(Date day) {
 		this.day = day;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
 	}
 	public String getAmkaPatient() {
 		return amkaPatient;

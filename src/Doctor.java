@@ -1,16 +1,17 @@
 
 public class Doctor {
 
-	private String arMitrwou;
+	private int arMitrwou;
 	private String lastname;
 	private String firstname;
 	private String telephone;
 	private String speciality;
-	private int department;
+	private String department;
+	private int dep;
 	private DbConnector connector;
 
 	public Doctor(int String, String lastname, String firstname,
-			String telephone, String speciality, int department) {
+			String telephone, String speciality, String department) {
 
 		this.arMitrwou = arMitrwou;
 		this.lastname = lastname;
@@ -50,10 +51,10 @@ public class Doctor {
 	public void setSpeciality(String speciality) {
 		this.speciality = speciality;
 	}
-	public int getDepartment() {
+	public String getDepartment() {
 		return department;
 	}
-	public void setDepartment(int department) {
+	public void setDepartment(String department) {
 		this.department = department;
 	}
 //	public void save(){
@@ -63,7 +64,7 @@ public class Doctor {
 //	public void delete(){
 //		this.connector.delete();
 //	}
-	public Doctor search(String arMitrwou){
+	public Doctor search(int arMitrwou){
 		connector = new DbConnector();
 		return (this.connector.getDoctorByAm(arMitrwou));
 	}
