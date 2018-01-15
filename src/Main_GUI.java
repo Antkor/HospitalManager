@@ -97,6 +97,11 @@ public class Main_GUI {
 		panel.add(btn_PattientList);
 		
 		JButton btn_AppList = new JButton("\u039B\u03AF\u03C3\u03C4\u03B1 \u0395\u03C0\u03B9\u03C3\u03BA\u03AD\u03C8\u03B5\u03C9\u03BD");
+		btn_AppList.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppointmentList_GUI.run();
+			}
+		});
 		btn_AppList.setBounds(6, 152, 169, 23);
 		panel.add(btn_AppList);
 		

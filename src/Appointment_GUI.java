@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
@@ -154,8 +155,7 @@ public class Appointment_GUI extends JFrame{
 		comboBox = new JComboBox();
 		comboBox.setBounds(99, 91, 97, 19);
 		panel.add(comboBox);
-		comboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "8:00-8:30", "8:30-9:00", "9:00-9:30", "9:30-10:00",
-				                                               "10:00-10:30", "10:30-11:00", "11:00-11:30", "11:30-12:00", "12:00-12:30", "12:30-13:00"}));
+		comboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "8:00-8:30", "8:30-9:00", "9:00-9:30", "9:30-10:00","10:00-10:30", "10:30-11:00", "11:00-11:30", "11:30-12:00", "12:00-12:30", "12:30-13:00"}));
 		
 		JLabel lblNewLabel_5 = new JLabel("yyyy-MM-dd");
 		lblNewLabel_5.setBounds(206, 63, 78, 14);
@@ -194,4 +194,5 @@ private void saveAction() {
 	        String time = String.valueOf(comboBox.getSelectedItem());
 	        Appointment d = new Appointment(date, time ,text_AMKA.getText(), text_AM.getText(), text_INFO.getText());
 		}
+
 }
