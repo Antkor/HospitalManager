@@ -119,11 +119,11 @@ public class DbConnector {
 		return p;
 	}
 	
-	public Doctor getDoctorByAm(String am) {
+	public Doctor getDoctorByAm(int am) {
 		Doctor d = null;
 		openConnection();
 		try {		
-			ResultSet rs = st.executeQuery("select * from doctor where id='"+Integer.parseInt(am)+"'");			
+			ResultSet rs = st.executeQuery("select * from doctor where id='"+am+"'");			
 			while(rs.next()) {
 				d = new Doctor(rs.getInt("id"), rs.getString("name"), rs.getString("surname"), rs.getString("telephone"), 
 						rs.getString("speciality"), rs.getInt("department_id"));

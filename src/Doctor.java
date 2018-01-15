@@ -63,7 +63,7 @@ public class Doctor {
 //	public void delete(){
 //		this.connector.delete();
 //	}
-	public Doctor search(String arMitrwou){
+	public Doctor search(int arMitrwou){
 		connector = new DbConnector();
 		return (this.connector.getDoctorByAm(arMitrwou));
 	}
