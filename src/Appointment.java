@@ -11,11 +11,7 @@ public class Appointment {
 	private String info;
 	private DbConnector connector;
 	
-<<<<<<< HEAD
 	public Appointment(Date day, String time, String amkaPatient, String arMitrwoyDoctor, String info) {
-=======
-	public Appointment(Date day, String amkaPatient, int arMitrwoyDoctor, String info) {
->>>>>>> branch 'develop' of https://github.com/Antkor/HospitalManager.git
 		this.day = day;
 		this.time = time;
 		this.amkaPatient = amkaPatient;
