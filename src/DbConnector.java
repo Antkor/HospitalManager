@@ -57,5 +57,85 @@ public class DbConnector {
 		}
 		return patients;
 	}
-
+	
+	public ArrayList<Doctor> getAllDoctors() {
+		ArrayList<Doctor> doctors = new ArrayList<Doctor>();
+		openConnection();
+		try {		
+			ResultSet rs = st.executeQuery("select * from doctor");
+			
+			while(rs.next()) {
+				Doctor d = new Doctor(rs.getInt("id"), rs.getString("name"), rs.getString("surname"), rs.getString("telephone"), 
+										rs.getString("speciality"), rs.getInt("department_id"));
+				doctors.add(d);
+			}
+		}
+		catch (Exception e) {
+			return null;
+		}
+		finally {
+			closeConnection();
+		}
+		return doctors;
+	}
+	
+	public ArrayList<Appointment> getAllAppointments() {
+		ArrayList<Appointment> appointments = new ArrayList<Appointment>();
+		openConnection();
+		try {		
+			ResultSet rs = st.executeQuery("select * from appointment");
+			
+			while(rs.next()) {
+				Appointment a = new Appointment(rs.getDate("date"), rs.getString("patient_amka"), rs.getInt("doctor_id"), rs.getString("notes"));
+				appointments.add(a);
+			}
+		}
+		catch (Exception e) {
+			return null;
+		}
+		finally {
+			closeConnection();
+		}
+		return appointments;
+	}
+	
+	public Patient getPatientByAmka(String amka) {
+		Patient p = null;
+		openConnection();
+		try {		
+			ResultSet rs = st.executeQuery("select * from patient where amka='"+amka+"'");			
+			while(rs.next()) {
+				p = new Patient(rs.getString("amka"), rs.getString("lastname"), rs.getString("firsname"), rs.getString("address"), 
+						rs.getString("telephone"), rs.getString("email"), rs.getInt("age"), rs.getString("gender"), 
+						rs.getString("bloodtype"), rs.getString("insurance"), rs.getString("info"));
+			}
+		}
+		catch (Exception e) {
+			return null;
+		}
+		finally {
+			closeConnection();
+		}
+		return p;
+	}
+	
+	public Doctor getDoctorByAm(String am) {
+		Doctor d = null;
+		openConnection();
+		try {		
+			ResultSet rs = st.executeQuery("select * from doctor where id='"+Integer.parseInt(am)+"'");			
+			while(rs.next()) {
+				d = new Doctor(rs.getInt("id"), rs.getString("name"), rs.getString("surname"), rs.getString("telephone"), 
+						rs.getString("speciality"), rs.getInt("department_id"));
+			}
+		}
+		catch (Exception e) {
+			return null;
+		}
+		finally {
+			closeConnection();
+		}
+		return d;
+	}
+	
 }
