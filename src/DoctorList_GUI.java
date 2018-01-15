@@ -70,9 +70,9 @@ public class DoctorList_GUI {
 			String arMitr = doctors.get(i).getArMitrwou();
 			String ln = doctors.get(i).getLastname();
 			String fn = doctors.get(i).getFirstname();
-			int ph = doctors.get(i).getTelephone();
+			String ph = doctors.get(i).getTelephone();
 			String sp = doctors.get(i).getSpeciality();
-			String dep = doctors.get(i).getDepartment();
+			int dep = doctors.get(i).getDepartment();
 			
 			Object[] data = {arMitr, ln, fn, ph, sp, dep};
 			

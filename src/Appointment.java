@@ -5,7 +5,6 @@ import java.util.Date;
 public class Appointment {
 
 	private Date day;
-	private String time;
 	private String amkaPatient;
 	private int arMitrwoyDoctor;
 	private String info;
@@ -13,7 +12,6 @@ public class Appointment {
 	
 	public Appointment(Date day, String amkaPatient, int arMitrwoyDoctor, String info) {
 		this.day = day;
-		this.time = time;
 		this.amkaPatient = amkaPatient;
 		this.arMitrwoyDoctor = arMitrwoyDoctor;
 		this.info = info;
@@ -23,12 +21,6 @@ public class Appointment {
 	}
 	public void setDay(Date day) {
 		this.day = day;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
 	}
 	public String getAmkaPatient() {
 		return amkaPatient;
