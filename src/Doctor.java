@@ -7,11 +7,10 @@ public class Doctor {
 	private String telephone;
 	private String speciality;
 	private int department;
-	private String dep;
 	private DbConnector connector;
 
 	public Doctor(int arMitrwou, String lastname, String firstname,
-			String telephone, String speciality, String dep) {
+			String telephone, String speciality, int department) {
 
 		this.arMitrwou = arMitrwou;
 		this.lastname = lastname;
@@ -19,36 +18,7 @@ public class Doctor {
 		this.telephone = telephone;
 		this.speciality = speciality;
 		this.department = department;
-		if(dep == "Αιματολογικό") {
-			this.department = 1;
-		}
-		else if(dep == "Δερματολογικό") {
-			this.department = 2;
-		}
-		else if(dep == "Καρδιολογικό") {
-			this.department = 3;
-		}
-		else if(dep == "Ορθοπαιδικό") {
-			this.department = 4;
-		}
-		else if(dep == "Παθολογικό") {
-			this.department = 5;
-		}
-		else if(dep == "Παιδιατρικό") {
-			this.department = 6;
-		}
-		else if(dep == "Πνευματολογικό") {
-			this.department = 7;
-		}
-		else if(dep == "Χειρουργικό") {
-			this.department = 8;
-		}
-		else if(dep == "Ψυχιατρικό") {
-			this.department = 9;
-		}
-		else if(dep == "ΩΡΛ") {
-			this.department = 10;
-		}
+		
 	}
 	public int getArMitrwou() {
 		return arMitrwou;
