@@ -7,12 +7,14 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class DoctorList_GUI {
 
 	private JFrame frame;
 	private JTable table;
 	private DefaultTableModel tableModel;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -41,26 +43,29 @@ public class DoctorList_GUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("\u039B\u03AF\u03C3\u03C4\u03B1 \u0399\u03B1\u03C4\u03C1\u03CE\u03BD");
-		frame.setBounds(100, 100, 550, 300);
+		frame.setBounds(100, 100, 894, 435);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		String col[] = {"Αριθμός μητρώου","Επόνυμο","Όνομα","Τηλέφωνο","Ειδικότητα","Τμήμα"};
+		String col[] = {"Αριθμός μητρώου","Επώνυμο","Όνομα","Τηλέφωνο","Ειδικότητα","Τμήμα"};
 
 		tableModel = new DefaultTableModel(col, 0);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Προβολή ιατρών");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				loadTable();
 			}
 		});
-		btnNewButton.setBounds(10, 11, 111, 23);
+		btnNewButton.setBounds(10, 11, 146, 23);
 		frame.getContentPane().add(btnNewButton);
 		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 45, 858, 340);
+		frame.getContentPane().add(scrollPane);
+		
 		table = new JTable(tableModel);
-		table.setBounds(10, 45, 514, 205);
-		frame.getContentPane().add(table);
+		scrollPane.setViewportView(table);
 	}
 	
 	private void loadTable() {

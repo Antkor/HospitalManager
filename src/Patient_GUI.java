@@ -62,10 +62,10 @@ public class Patient_GUI extends JFrame {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 513, 530);
+		frame.setBounds(100, 100, 503, 512);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setTitle("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		frame.setTitle("\u0394\u03B9\u03B1\u03C7\u03B5\u03AF\u03C1\u03B9\u03C3\u03B7 \u03B1\u03C3\u03B8\u03B5\u03BD\u03AE");
 		
 		JLabel lblNewLabel = new JLabel("\u0391.\u039C.\u039A.\u0391");
 		lblNewLabel.setBounds(20, 27, 46, 14);
@@ -140,7 +140,7 @@ public class Patient_GUI extends JFrame {
 		combo_sex = new JComboBox();
 		combo_sex.setBounds(113, 280, 46, 20);
 		frame.getContentPane().add(combo_sex);
-		combo_sex.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "ï¿½" }));
+		combo_sex.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "È" }));
 		
 		combo_blood = new JComboBox();
 		combo_blood.setBounds(113, 318, 46, 20);
@@ -148,7 +148,7 @@ public class Patient_GUI extends JFrame {
 		combo_blood.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-" }));
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(341, 38, 134, 248);
+		panel.setBounds(341, 11, 134, 248);
 		frame.getContentPane().add(panel);
 		panel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 		panel.setLayout(null);
@@ -160,20 +160,20 @@ public class Patient_GUI extends JFrame {
 				
 			}
 		});
-		btn_GetData.setBounds(24, 189, 89, 23);
+		btn_GetData.setBounds(24, 113, 89, 23);
 		panel.add(btn_GetData);
 		
 		JButton btn_Save = new JButton("Save");
-		btn_Save.setBounds(24, 44, 89, 23);
+		btn_Save.setBounds(24, 11, 89, 23);
 		panel.add(btn_Save);
 		
 		
 		JButton btn_New = new JButton("New");
-		btn_New.setBounds(24, 89, 89, 23);
+		btn_New.setBounds(24, 45, 89, 23);
 		panel.add(btn_New);
 		
 		JButton btn_Delete = new JButton("Delete");
-		btn_Delete.setBounds(24, 139, 89, 23);
+		btn_Delete.setBounds(24, 79, 89, 23);
 		panel.add(btn_Delete);
 		btn_Save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

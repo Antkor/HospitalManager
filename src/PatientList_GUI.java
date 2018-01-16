@@ -56,7 +56,7 @@ public class PatientList_GUI {
 				loadTable();
 			}
 		});
-		btnNewButton.setBounds(10, 11, 132, 23);
+		btnNewButton.setBounds(10, 11, 185, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		JScrollPane scrollPane = new JScrollPane();

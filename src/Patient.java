@@ -97,13 +97,13 @@ public class Patient {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-//	public void save(){
-//		connector = new Connector(this);
-//		this.connector.save();
-//	}
-//	public void delete(){
-//		this.connector.delete();
-//	}
+	public void save(Patient p){
+		connector = new DbConnector();
+		this.connector.savePatient(p);
+	}
+	public void delete(Patient p){
+		this.connector.deletePatient(p);
+	}
 	public static Patient search(String amka){
 	    connector = new DbConnector();
 		return (connector.getPatientByAmka(amka));

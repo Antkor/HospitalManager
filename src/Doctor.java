@@ -56,13 +56,13 @@ public class Doctor {
 	public void setDepartment(int department) {
 		this.department = department;
 	}
-//	public void save(){
-//		connector = new Connector(this);
-//		this.connector.save();
-//	}
-//	public void delete(){
-//		this.connector.delete();
-//	}
+	public void save(Doctor d){
+		connector = new DbConnector();
+		this.connector.saveDoctor(d);
+	}
+	public void delete(Doctor d){
+		this.connector.deleteDoctor(d);
+	}
 	public static Doctor search(int arMitrwou){
 		connector = new DbConnector();
 		return (connector.getDoctorByAm(arMitrwou));

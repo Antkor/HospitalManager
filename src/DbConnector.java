@@ -1,8 +1,15 @@
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+
+import com.mysql.jdbc.PreparedStatement;
 
 public class DbConnector {
 	
@@ -94,7 +101,7 @@ public class DbConnector {
 			ResultSet rs = st.executeQuery("select * from appointment");
 			
 			while(rs.next()) {
-				Appointment a = new Appointment(rs.getDate("date"),rs.getString("time"), rs.getString("patient_amka"), rs.getInt("doctor_id"), rs.getString("notes"));
+				Appointment a = new Appointment(rs.getDate("date"),rs.getString("date"), rs.getString("patient_amka"), rs.getInt("doctor_id"), rs.getString("notes"));
 				appointments.add(a);
 			}
 		}
@@ -144,6 +151,106 @@ public class DbConnector {
 			closeConnection();
 		}
 		return d;
+	}
+	
+	public void deleteDoctor(Doctor d) {
+		openConnection();
+		String query = "DELETE FROM doctor WHERE id = ? ";
+		java.sql.PreparedStatement pstmt = null;
+
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, d.getArMitrwou());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+
+		closeConnection();
+	}
+	
+	public void deletePatient(Patient p) {
+		openConnection();
+		String query = "DELETE FROM patient WHERE amka = ? ";
+		java.sql.PreparedStatement pstmt = null;
+
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, p.getAmka());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+
+		closeConnection();
+
+	}
+	
+	public void saveDoctor(Doctor d) {		
+		openConnection();
+				
+		String query = "INSERT INTO `doctor` (`date_created`, `date_updated`, `name`, `surname`, `telephone`, `speciality`, `department_id`) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?) ";
+		java.sql.PreparedStatement pstmt = null;
+
+		try {
+			
+		    java.util.Date today = new java.util.Date();
+		    java.sql.Date sqlDate =  new java.sql.Date(today.getTime());
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setDate(1, sqlDate);
+			pstmt.setDate(2, sqlDate);
+			pstmt.setString(3, d.getFirstname());
+			pstmt.setString(4, d.getLastname());
+			pstmt.setString(5, d.getTelephone());
+			pstmt.setString(6, d.getSpeciality());
+			pstmt.setInt(7, d.getDepartment());
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+
+		closeConnection();
+	}
+	
+	public void savePatient(Patient p) {
+		openConnection();
+		
+		String query = "INSERT INTO `patient` (`amka`, `date_created`, `date_updated`, `firstname`, `lastname`, `address`, `telephone`, `email`, `age`, `gender`, `bloodtype`, `insurance`, `info`)"
+				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		java.sql.PreparedStatement pstmt = null;
+
+		try {
+			
+		    java.util.Date today = new java.util.Date();
+		    java.sql.Date sqlDate =  new java.sql.Date(today.getTime());
+			
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, p.getAmka());
+			pstmt.setDate(2, sqlDate);
+			pstmt.setDate(3, sqlDate);
+			pstmt.setString(4, p.getFirstname());
+			pstmt.setString(5, p.getLastname());
+			pstmt.setString(6, p.getAddress());
+			pstmt.setString(7, p.getTelephone());
+			pstmt.setString(8, p.getEmail());
+			pstmt.setInt(9, p.getAge());
+			pstmt.setString(10, p.getGender());
+			pstmt.setString(11, p.getBloodType());
+			pstmt.setString(12, p.getInsurance());
+			pstmt.setString(13, p.getInfo());
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+
+		closeConnection();
 	}
 	
 }

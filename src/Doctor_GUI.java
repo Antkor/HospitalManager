@@ -88,7 +88,7 @@ public class Doctor_GUI extends JFrame {
 		combo_dep = new JComboBox();
 		combo_dep.setBounds(89, 202, 110, 20);
 		panel_1.add(combo_dep);
-		combo_dep.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½", "οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½" }));
+		combo_dep.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Αιματολογικό", "Δερματολογικό","Καρδιολογικό","Ορθοπαιδικο","Παθολογικό","Παιδιατρικό","Πνευματολογικό","Χειρουργικό","Ψυχιατρικό","ΩΡΛ" }));
 		
 		JLabel lblNewLabel_3 = new JLabel("\u0395\u03B9\u03B4\u03B9\u03BA\u03CC\u03C4\u03B7\u03C4\u03B1");
 		lblNewLabel_3.setBounds(10, 169, 60, 14);
@@ -97,7 +97,7 @@ public class Doctor_GUI extends JFrame {
 		combo_Sp = new JComboBox();
 		combo_Sp.setBounds(89, 166, 110, 20);
 		panel_1.add(combo_Sp);
-		combo_Sp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½", "οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½"}));
+		combo_Sp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Δερματολόγος", "Καρδιολόγος","Μικροβιολόγος","Ορθοπαιδικός","Παθολόγος","Παιδίατρος","Πνευμονολόγος","Χειρούργος","Ψυχίατρος","ΩΡΛ"}));
 		
 		JLabel lblNewLabel_2 = new JLabel("\u03A4\u03B7\u03BB\u03AD\u03C6\u03C9\u03BD\u03BF:");
 		lblNewLabel_2.setBounds(10, 130, 60, 14);
@@ -154,34 +154,34 @@ public class Doctor_GUI extends JFrame {
 	        String sp = String.valueOf(combo_Sp.getSelectedItem());
 	        String dep = String.valueOf(combo_dep.getSelectedItem());
 	        int department = 0;
-	        if(dep == "Ξ‘ΞΉΞΌΞ±Ο„ΞΏΞ»ΞΏΞ³ΞΉΞΊΟ�") {
+	        if(dep == "Αιματολογικό") {
 				department = 1;
 			}
-			else if(dep == "Ξ”ΞµΟ�ΞΌΞ±Ο„ΞΏΞ»ΞΏΞ³ΞΉΞΊΟ�") {
+			else if(dep == "Δερματολογικό") {
 				department = 2;
 			}
-			else if(dep == "Ξ�Ξ±Ο�Ξ΄ΞΉΞΏΞ»ΞΏΞ³ΞΉΞΊΟ�") {
+			else if(dep == "Καρδιολογικό") {
 				department = 3;
 			}
-			else if(dep == "Ξ�Ο�ΞΈΞΏΟ€Ξ±ΞΉΞ΄ΞΉΞΊΟ�") {
+			else if(dep == "Ορθοπεδικό") {
 				department = 4;
 			}
-			else if(dep == "Ξ Ξ±ΞΈΞΏΞ»ΞΏΞ³ΞΉΞΊΟ�") {
+			else if(dep == "Παθολογικό") {
 				department = 5;
 			}
-			else if(dep == "Ξ Ξ±ΞΉΞ΄ΞΉΞ±Ο„Ο�ΞΉΞΊΟ�") {
+			else if(dep == "Παιδιατρικό") {
 				department = 6;
 			}
-			else if(dep == "Ξ Ξ½ΞµΟ…ΞΌΞ±Ο„ΞΏΞ»ΞΏΞ³ΞΉΞΊΟ�") {
+			else if(dep == "Πνευματολογικό") {
 				department = 7;
 			}
-			else if(dep == "Ξ§ΞµΞΉΟ�ΞΏΟ…Ο�Ξ³ΞΉΞΊΟ�") {
+			else if(dep == "Χειρουργικό") {
 				department = 8;
 			}
-			else if(dep == "Ξ¨Ο…Ο‡ΞΉΞ±Ο„Ο�ΞΉΞΊΟ�") {
+			else if(dep == "Ψυχιατρικό") {
 				department = 9;
 			}
-			else if(dep == "Ξ©Ξ΅Ξ›") {
+			else if(dep == "ΩΡΛ") {
 				department = 10;
 			}
 	        Doctor d = new Doctor(arMitr, text_Name.getText(), text_Sname.getText(), text_Phone.getText(), sp , department);

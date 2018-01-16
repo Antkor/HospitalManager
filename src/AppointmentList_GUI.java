@@ -57,7 +57,7 @@ public class AppointmentList_GUI {
 				loadTable();
 			}
 		});
-		btnNewButton.setBounds(10, 11, 109, 23);
+		btnNewButton.setBounds(10, 11, 179, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		JScrollPane scrollPane = new JScrollPane();
