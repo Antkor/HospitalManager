@@ -7,7 +7,7 @@ public class Doctor {
 	private String telephone;
 	private String speciality;
 	private int department;
-	private DbConnector connector;
+	private static DbConnector connector;
 
 	public Doctor(int arMitrwou, String lastname, String firstname,
 			String telephone, String speciality, int department) {
@@ -63,9 +63,9 @@ public class Doctor {
 //	public void delete(){
 //		this.connector.delete();
 //	}
-	public Doctor search(int arMitrwou){
+	public static Doctor search(int arMitrwou){
 		connector = new DbConnector();
-		return (this.connector.getDoctorByAm(arMitrwou));
+		return (connector.getDoctorByAm(arMitrwou));
 	}
 
 }
