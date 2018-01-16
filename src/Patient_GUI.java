@@ -65,7 +65,7 @@ public class Patient_GUI extends JFrame {
 		frame.setBounds(100, 100, 513, 530);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setTitle("Διαχείριση ασθενών");
+		frame.setTitle("οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½ οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½");
 		
 		JLabel lblNewLabel = new JLabel("\u0391.\u039C.\u039A.\u0391");
 		lblNewLabel.setBounds(20, 27, 46, 14);
@@ -140,7 +140,7 @@ public class Patient_GUI extends JFrame {
 		combo_sex = new JComboBox();
 		combo_sex.setBounds(113, 280, 46, 20);
 		frame.getContentPane().add(combo_sex);
-		combo_sex.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "Θ" }));
+		combo_sex.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "οΏ½" }));
 		
 		combo_blood = new JComboBox();
 		combo_blood.setBounds(113, 318, 46, 20);
@@ -245,8 +245,8 @@ private void saveAction() {
 
 
 private void getData() {
-	DbConnector c = new DbConnector();
-	Patient p = c.getPatientByAmka(text_Amka.getText());
+	
+	Patient p = Patient.search(text_Amka.getText());
     text_Address.setText(p.getAddress());
     text_Age.setText(String.valueOf(p.getAge()));
     text_Email.setText(p.getEmail());
