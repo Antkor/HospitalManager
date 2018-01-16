@@ -192,7 +192,7 @@ private void saveAction() {
 				e.printStackTrace();
 			}
 	        String time = String.valueOf(comboBox.getSelectedItem());
-	        Appointment d = new Appointment(date, text_AMKA.getText(), Integer.parseInt(text_AM.getText()), text_INFO.getText());
+	        Appointment d = new Appointment(date,time, text_AMKA.getText(), Integer.parseInt(text_AM.getText()), text_INFO.getText());
 		}
 
 }

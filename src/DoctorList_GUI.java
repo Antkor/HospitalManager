@@ -67,12 +67,12 @@ public class DoctorList_GUI {
 		ArrayList<Doctor> doctors = new ArrayList<Doctor>();
 		doctors = DoctorList.getDoctors();
 		for (int i = 0; i < doctors.size(); i++){
-			String arMitr = doctors.get(i).getArMitrwou();
+			String arMitr = String.valueOf(doctors.get(i).getArMitrwou());
 			String ln = doctors.get(i).getLastname();
 			String fn = doctors.get(i).getFirstname();
 			String ph = doctors.get(i).getTelephone();
 			String sp = doctors.get(i).getSpeciality();
-			String dep = doctors.get(i).getDepartment();
+			String dep = String.valueOf(doctors.get(i).getDepartment());
 			
 			Object[] data = {arMitr, ln, fn, ph, sp, dep};
 			

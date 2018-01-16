@@ -86,7 +86,7 @@ public class DbConnector {
 			ResultSet rs = st.executeQuery("select * from appointment");
 			
 			while(rs.next()) {
-				Appointment a = new Appointment(rs.getDate("date"), rs.getString("patient_amka"), rs.getInt("doctor_id"), rs.getString("notes"));
+				Appointment a = new Appointment(rs.getDate("date"),rs.getString("time"), rs.getString("patient_amka"), rs.getInt("doctor_id"), rs.getString("notes"));
 				appointments.add(a);
 			}
 		}

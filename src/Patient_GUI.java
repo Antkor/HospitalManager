@@ -71,7 +71,7 @@ public class Patient_GUI extends JFrame {
 		lblNewLabel.setBounds(20, 27, 46, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel label = new JLabel("\u0395\u03C0\u03CC\u03BD\u03C5\u03BC\u03BF");
+		JLabel label = new JLabel("\u0395\u03C0\u03CE\u03BD\u03C5\u03BC\u03BF");
 		label.setBounds(20, 64, 57, 14);
 		frame.getContentPane().add(label);
 		

@@ -4,11 +4,16 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class AppointmentList_GUI {
 
 	private JFrame frame;
 	private JTable table;
+	private DefaultTableModel tableModel;
+	
+
 
 	/**
 	 * Launch the application.
@@ -41,6 +46,10 @@ public class AppointmentList_GUI {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		String col[] = {"Ημέρα","Ώρα", "ΑΜΚΑ", "Επώνυμο Ασθενή", "ΑΜ Ιατρού","Επώνυμο Ιατρού", "Πληροφορίες"};
+
+		tableModel = new DefaultTableModel(col, 0);
+		
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.setBounds(10, 11, 109, 23);
 		frame.getContentPane().add(btnNewButton);
@@ -54,19 +63,16 @@ public class AppointmentList_GUI {
 		ArrayList<Appointment> Apps = new ArrayList<Appointment>();
 		Apps = AppointmentList.getAppointments();
 		for (int i = 0; i < Apps.size(); i++){
+			String date = Apps.get(i).getDay().toString();
+			String time = Apps.get(i).getTime();
 			String amka = Apps.get(i).getAmkaPatient();
-			String ln = Apps.get(i).getArMitrwoyDoctor();
-			String fn = patients.get(i).getFirstname();
-			String address = patients.get(i).getAddress();
-			String ph = patients.get(i).getTelephone();
-			String Email = patients.get(i).getEmail();
-			int age = patients.get(i).getAge();
-			String sex = patients.get(i).getGender();
-			String blood = patients.get(i).getBloodType();
-			String info = patients.get(i).getInfo();
+			String lnameP = AppointmentList.getNamebyAmka(amka);
+			String am = String.valueOf(Apps.get(i).getArMitrwoyDoctor());
+			String lnameD = AppointmentList.getNameByAm(Integer.parseInt(am));
+			String info = Apps.get(i).getInfo();
 			
-			Object[] data = {amka, ln, fn, address, ph, Email, 
-	                age, sex, blood, info};
+					
+			Object[] data = {date, time, amka, lnameP, am, lnameD, info};
 			
 			tableModel.addRow(data);
 					

@@ -12,6 +12,12 @@ public class Appointment {
 	private DbConnector connector;
 	
 
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
 	public Appointment(Date day, String time, String amkaPatient, int arMitrwoyDoctor, String info) {
 		this.day = day;
 		this.time = time;
