@@ -1,4 +1,3 @@
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -9,8 +8,6 @@ public class Appointment {
 	private String amkaPatient;
 	private int arMitrwoyDoctor;
 	private String info;
-	private DbConnector connector;
-	
 
 	public String getTime() {
 		return time;

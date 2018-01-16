@@ -1,4 +1,4 @@
-import java.awt.EventQueue;
+﻿import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -88,7 +88,7 @@ public class Doctor_GUI extends JFrame {
 		combo_dep = new JComboBox();
 		combo_dep.setBounds(89, 202, 110, 20);
 		panel_1.add(combo_dep);
-		combo_dep.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "������������", "�������������","������������","�����������","����������","�����������","��������������","�����������","����������","���" }));
+		combo_dep.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½", "οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½" }));
 		
 		JLabel lblNewLabel_3 = new JLabel("\u0395\u03B9\u03B4\u03B9\u03BA\u03CC\u03C4\u03B7\u03C4\u03B1");
 		lblNewLabel_3.setBounds(10, 169, 60, 14);
@@ -97,7 +97,7 @@ public class Doctor_GUI extends JFrame {
 		combo_Sp = new JComboBox();
 		combo_Sp.setBounds(89, 166, 110, 20);
 		panel_1.add(combo_Sp);
-		combo_Sp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "������������", "�����������","�������������","������������","���������","����������","�������������","����������","���������","���"}));
+		combo_Sp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½", "οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½","οΏ½οΏ½οΏ½"}));
 		
 		JLabel lblNewLabel_2 = new JLabel("\u03A4\u03B7\u03BB\u03AD\u03C6\u03C9\u03BD\u03BF:");
 		lblNewLabel_2.setBounds(10, 130, 60, 14);
@@ -154,34 +154,34 @@ public class Doctor_GUI extends JFrame {
 	        String sp = String.valueOf(combo_Sp.getSelectedItem());
 	        String dep = String.valueOf(combo_dep.getSelectedItem());
 	        int department = 0;
-	        if(dep == "Αιματολογικό") {
+	        if(dep == "Ξ‘ΞΉΞΌΞ±Ο„ΞΏΞ»ΞΏΞ³ΞΉΞΊΟ�") {
 				department = 1;
 			}
-			else if(dep == "Δερματολογικό") {
+			else if(dep == "Ξ”ΞµΟ�ΞΌΞ±Ο„ΞΏΞ»ΞΏΞ³ΞΉΞΊΟ�") {
 				department = 2;
 			}
-			else if(dep == "Καρδιολογικό") {
+			else if(dep == "Ξ�Ξ±Ο�Ξ΄ΞΉΞΏΞ»ΞΏΞ³ΞΉΞΊΟ�") {
 				department = 3;
 			}
-			else if(dep == "Ορθοπαιδικό") {
+			else if(dep == "Ξ�Ο�ΞΈΞΏΟ€Ξ±ΞΉΞ΄ΞΉΞΊΟ�") {
 				department = 4;
 			}
-			else if(dep == "Παθολογικό") {
+			else if(dep == "Ξ Ξ±ΞΈΞΏΞ»ΞΏΞ³ΞΉΞΊΟ�") {
 				department = 5;
 			}
-			else if(dep == "Παιδιατρικό") {
+			else if(dep == "Ξ Ξ±ΞΉΞ΄ΞΉΞ±Ο„Ο�ΞΉΞΊΟ�") {
 				department = 6;
 			}
-			else if(dep == "Πνευματολογικό") {
+			else if(dep == "Ξ Ξ½ΞµΟ…ΞΌΞ±Ο„ΞΏΞ»ΞΏΞ³ΞΉΞΊΟ�") {
 				department = 7;
 			}
-			else if(dep == "Χειρουργικό") {
+			else if(dep == "Ξ§ΞµΞΉΟ�ΞΏΟ…Ο�Ξ³ΞΉΞΊΟ�") {
 				department = 8;
 			}
-			else if(dep == "Ψυχιατρικό") {
+			else if(dep == "Ξ¨Ο…Ο‡ΞΉΞ±Ο„Ο�ΞΉΞΊΟ�") {
 				department = 9;
 			}
-			else if(dep == "ΩΡΛ") {
+			else if(dep == "Ξ©Ξ΅Ξ›") {
 				department = 10;
 			}
 	        Doctor d = new Doctor(arMitr, text_Name.getText(), text_Sname.getText(), text_Phone.getText(), sp , department);

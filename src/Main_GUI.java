@@ -45,7 +45,7 @@ public class Main_GUI {
 	 */
 	private void initialize() {
 		
-		//image = new ImageIcon(this.getClass().getResource("/HospMan.jpg")).getImage();
+		image = new ImageIcon(this.getClass().getResource("/HospMan.jpg")).getImage();
 		
 		frmHospitalManager = new JFrame();
 		frmHospitalManager.setTitle("Hospital Manager");
@@ -59,7 +59,7 @@ public class Main_GUI {
 		frmHospitalManager.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JButton btn_patient = new JButton("\u0394\u03B9\u03B1\u03C7\u03B5\u03AF\u03C1\u03B9\u03C3\u03B7 \u0391\u03C3\u03B8\u03B5\u03BD\u03CE\u03BD");
+		JButton btn_patient = new JButton("Διαχείριση Ασθενών");
 		btn_patient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
             Patient_GUI.run();
@@ -69,7 +69,7 @@ public class Main_GUI {
 		btn_patient.setBounds(6, 16, 169, 23);
 		panel.add(btn_patient);
 		
-		JButton btn_App = new JButton("\u0394\u03B9\u03B1\u03C7\u03B5\u03AF\u03C1\u03B9\u03C3\u03B7 \u0395\u03C0\u03B9\u03C3\u03BA\u03AD\u03C8\u03B5\u03C9\u03BD");
+		JButton btn_App = new JButton("Διαχείριση Επισκέψεων");
 		btn_App.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Appointment_GUI.run();
@@ -78,7 +78,7 @@ public class Main_GUI {
 		btn_App.setBounds(6, 50, 169, 23);
 		panel.add(btn_App);
 		
-		JButton btn_Doctor = new JButton("\u0394\u03B9\u03B1\u03C7\u03B5\u03AF\u03C1\u03B9\u03C3\u03B7 \u0399\u03B1\u03C4\u03C1\u03CE\u03BD");
+		JButton btn_Doctor = new JButton("Διαχείριση Ιατρών");
 		btn_Doctor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Doctor_GUI.run();
@@ -87,7 +87,7 @@ public class Main_GUI {
 		btn_Doctor.setBounds(6, 84, 169, 23);
 		panel.add(btn_Doctor);
 		
-		JButton btn_PattientList = new JButton("\u039B\u03AF\u03C3\u03C4\u03B1 \u0391\u03C3\u03B8\u03B5\u03BD\u03CE\u03BD");
+		JButton btn_PattientList = new JButton("Λίστα Ασθενών");
 		btn_PattientList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PatientList_GUI.run();
@@ -96,7 +96,7 @@ public class Main_GUI {
 		btn_PattientList.setBounds(6, 118, 169, 23);
 		panel.add(btn_PattientList);
 		
-		JButton btn_AppList = new JButton("\u039B\u03AF\u03C3\u03C4\u03B1 \u0395\u03C0\u03B9\u03C3\u03BA\u03AD\u03C8\u03B5\u03C9\u03BD");
+		JButton btn_AppList = new JButton("Λίστα Επισκέψεων");
 		btn_AppList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AppointmentList_GUI.run();
@@ -105,7 +105,7 @@ public class Main_GUI {
 		btn_AppList.setBounds(6, 152, 169, 23);
 		panel.add(btn_AppList);
 		
-		JButton btn_DoctorList = new JButton("\u039B\u03AF\u03C3\u03C4\u03B1 \u0399\u03B1\u03C4\u03C1\u03CE\u03BD");
+		JButton btn_DoctorList = new JButton("Λίστα Ιατρών");
 		btn_DoctorList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DoctorList_GUI.run();
@@ -116,8 +116,8 @@ public class Main_GUI {
 		
 		JLabel lbl_Image = new JLabel("");
 		lbl_Image.setText("");
-		//lbl_Image.setIcon(new ImageIcon(image));
-		lbl_Image.setBounds(204, 11, 525, 253);
+		lbl_Image.setIcon(new ImageIcon(image));
+		lbl_Image.setBounds(205, 11, 525, 253);
 		frmHospitalManager.getContentPane().add(lbl_Image);
 	}
 }

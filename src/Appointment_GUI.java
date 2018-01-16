@@ -1,27 +1,20 @@
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
-import javax.swing.JFrame;
-import javax.swing.JTextPane;
-import javax.swing.JTextField;
-import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JPanel;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.border.TitledBorder;
-import java.text.ParseException;
-import javafx.scene.control.ComboBox;
-
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.awt.event.ActionEvent;
-import javax.swing.JComboBox;
+import javax.swing.border.TitledBorder;
 
 public class Appointment_GUI extends JFrame{
 
@@ -149,7 +142,7 @@ public class Appointment_GUI extends JFrame{
 		panel.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("\u03A0\u03BB\u03B7\u03C1\u03BF\u03C6\u03BF\u03C1\u03AF\u03B5\u03C2");
-		lblNewLabel_4.setBounds(6, 188, 66, 14);
+		lblNewLabel_4.setBounds(8, 185, 66, 14);
 		panel.add(lblNewLabel_4);
 		
 		comboBox = new JComboBox();

@@ -1,4 +1,7 @@
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DbConnector {
@@ -40,13 +43,18 @@ public class DbConnector {
 		ArrayList<Patient> patients = new ArrayList<Patient>();
 		openConnection();
 		try {		
+			
 			ResultSet rs = st.executeQuery("select * from patient");
 			
-			while(rs.next()) {
-				Patient p = new Patient(rs.getString("amka"), rs.getString("lastname"), rs.getString("firsname"), rs.getString("address"), 
+			while(rs.next()) {				
+				
+				System.out.println(rs.getString("firstname"));				
+				Patient p = new Patient(rs.getString("amka"), rs.getString("lastname"), rs.getString("firstname"), rs.getString("address"), 
 										rs.getString("telephone"), rs.getString("email"), rs.getInt("age"), rs.getString("gender"), 
 										rs.getString("bloodtype"), rs.getString("insurance"), rs.getString("info"));
+				
 				patients.add(p);
+
 			}
 		}
 		catch (Exception e) {

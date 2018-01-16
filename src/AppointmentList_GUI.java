@@ -1,11 +1,12 @@
-import java.awt.EventQueue;
 import java.util.ArrayList;
 
-import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AppointmentList_GUI {
 
@@ -41,8 +42,8 @@ public class AppointmentList_GUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setTitle("\u039B\u03AF\u03C3\u03C4\u03B1 \u0395\u03C0\u03B9\u03C3\u03BA\u03AD\u03C8\u03B5\u03C9\u03BD");
-		frame.setBounds(100, 100, 517, 300);
+		frame.setTitle("Λίστα ραντεβού");
+		frame.setBounds(100, 100, 832, 473);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -50,13 +51,21 @@ public class AppointmentList_GUI {
 
 		tableModel = new DefaultTableModel(col, 0);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Προβολή όλων");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				loadTable();
+			}
+		});
 		btnNewButton.setBounds(10, 11, 109, 23);
 		frame.getContentPane().add(btnNewButton);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 45, 796, 378);
+		frame.getContentPane().add(scrollPane);
+		
 		table = new JTable();
-		table.setBounds(10, 45, 481, 205);
-		frame.getContentPane().add(table);
+		scrollPane.setViewportView(table);
 	}
 	
 	private void loadTable() {

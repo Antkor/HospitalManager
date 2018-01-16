@@ -9,11 +9,12 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class PatientList_GUI {
 
 	private JFrame frame;
-	private JTable table_1;
+	private JTable table;
 	private DefaultTableModel tableModel;
 
 	/**
@@ -41,31 +42,35 @@ public class PatientList_GUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 871, 447);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		String col[] = {"AMKA","Επόνυμο","Όνομα", "Διεύθυνση", "Τηλέφωνο", "Εmail", "Ηλικία", "Φύλο", "Ομ. Αιμ.", "Info"};
+		String col[] = {"AMKA","Επώνυμο","Όνομα", "Διεύθυνση", "Τηλέφωνο", "Εmail", "Ηλικία", "Φύλο", "Ομάδα Αίματος", "Info"};
 
 		tableModel = new DefaultTableModel(col, 0);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Προβολή ασθενών");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				loadTable();
 			}
 		});
-		btnNewButton.setBounds(10, 11, 89, 23);
+		btnNewButton.setBounds(10, 11, 132, 23);
 		frame.getContentPane().add(btnNewButton);
 		
-		table_1 = new JTable(tableModel);
-		table_1.setBounds(10, 45, 414, 205);
-		frame.getContentPane().add(table_1);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 48, 835, 349);
+		frame.getContentPane().add(scrollPane);
+		
+		table = new JTable(tableModel);
+		scrollPane.setViewportView(table);
 		
 	}
 		private void loadTable() {
 		ArrayList<Patient> patients = new ArrayList<Patient>();
 		patients = PatientList.getPatients();
+		System.out.println(patients);
 		for (int i = 0; i < patients.size(); i++){
 			String amka = patients.get(i).getAmka();
 			String ln = patients.get(i).getLastname();
