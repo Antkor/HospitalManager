@@ -6,12 +6,12 @@ public class Doctor {
 	private String firstname;
 	private String telephone;
 	private String speciality;
-	private String department;
-	private int dep;
+	private int department;
+	private String dep;
 	private DbConnector connector;
 
-	public Doctor(int String, String lastname, String firstname,
-			String telephone, String speciality, String department) {
+	public Doctor(int arMitrwou, String lastname, String firstname,
+			String telephone, String speciality, String dep) {
 
 		this.arMitrwou = arMitrwou;
 		this.lastname = lastname;
@@ -19,12 +19,41 @@ public class Doctor {
 		this.telephone = telephone;
 		this.speciality = speciality;
 		this.department = department;
-		
+		if(dep == "Αιματολογικό") {
+			this.department = 1;
+		}
+		else if(dep == "Δερματολογικό") {
+			this.department = 2;
+		}
+		else if(dep == "Καρδιολογικό") {
+			this.department = 3;
+		}
+		else if(dep == "Ορθοπαιδικό") {
+			this.department = 4;
+		}
+		else if(dep == "Παθολογικό") {
+			this.department = 5;
+		}
+		else if(dep == "Παιδιατρικό") {
+			this.department = 6;
+		}
+		else if(dep == "Πνευματολογικό") {
+			this.department = 7;
+		}
+		else if(dep == "Χειρουργικό") {
+			this.department = 8;
+		}
+		else if(dep == "Ψυχιατρικό") {
+			this.department = 9;
+		}
+		else if(dep == "ΩΡΛ") {
+			this.department = 10;
+		}
 	}
-	public String getArMitrwou() {
+	public int getArMitrwou() {
 		return arMitrwou;
 	}
-	public void setArMitrwou(String arMitrwou) {
+	public void setArMitrwou(int arMitrwou) {
 		this.arMitrwou = arMitrwou;
 	}
 	public String getLastname() {
@@ -51,10 +80,10 @@ public class Doctor {
 	public void setSpeciality(String speciality) {
 		this.speciality = speciality;
 	}
-	public String getDepartment() {
+	public int getDepartment() {
 		return department;
 	}
-	public void setDepartment(String department) {
+	public void setDepartment(int department) {
 		this.department = department;
 	}
 //	public void save(){
