@@ -58,10 +58,10 @@ public class Doctor {
 	}
 	public void save(Doctor d){
 		connector = new DbConnector();
-		this.connector.saveDoctor(d);
+		connector.saveDoctor(d);
 	}
 	public void delete(Doctor d){
-		this.connector.deleteDoctor(d);
+		connector.deleteDoctor(d);
 	}
 	public static Doctor search(int arMitrwou){
 		connector = new DbConnector();

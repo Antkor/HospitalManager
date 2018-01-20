@@ -99,10 +99,10 @@ public class Patient {
 	}
 	public void save(Patient p){
 		connector = new DbConnector();
-		this.connector.savePatient(p);
+		connector.savePatient(p);
 	}
 	public void delete(Patient p){
-		this.connector.deletePatient(p);
+		connector.deletePatient(p);
 	}
 	public static Patient search(String amka){
 	    connector = new DbConnector();

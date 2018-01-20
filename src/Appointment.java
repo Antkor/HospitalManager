@@ -8,19 +8,21 @@ public class Appointment {
 	private String amkaPatient;
 	private int arMitrwoyDoctor;
 	private String info;
+	private DbConnector connector;
 
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
-	}
 	public Appointment(Date day, String time, String amkaPatient, int arMitrwoyDoctor, String info) {
 		this.day = day;
 		this.time = time;
 		this.amkaPatient = amkaPatient;
 		this.arMitrwoyDoctor = arMitrwoyDoctor;
 		this.info = info;
+	}
+	
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
 	}
 	public Date getDay() {
 		return day;
@@ -48,6 +50,13 @@ public class Appointment {
 	}
 	public ArrayList<Appointment> getData(){
 		return AppointmentList.getAppointments();
+	}
+	public void save(Appointment a){
+		connector = new DbConnector();
+		connector.saveAppointment(a);
+	}
+	public void delete(Appointment a){
+		connector.deleteAppointment(a);
 	}
 	
 }

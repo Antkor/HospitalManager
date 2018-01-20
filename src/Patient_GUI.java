@@ -34,6 +34,7 @@ public class Patient_GUI extends JFrame {
 	private JComboBox combo_sex;
 	private JComboBox combo_blood;
 	private JTextArea text_Info;
+	private Patient p;
 
 	/**
 	 * Launch the application.
@@ -140,7 +141,7 @@ public class Patient_GUI extends JFrame {
 		combo_sex = new JComboBox();
 		combo_sex.setBounds(113, 280, 46, 20);
 		frame.getContentPane().add(combo_sex);
-		combo_sex.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "È" }));
+		combo_sex.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "ï¿½" }));
 		
 		combo_blood = new JComboBox();
 		combo_blood.setBounds(113, 318, 46, 20);
@@ -154,32 +155,42 @@ public class Patient_GUI extends JFrame {
 		panel.setLayout(null);
 		
 		JButton btn_GetData = new JButton("Get Data");
-		btn_GetData.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				
-			}
-		});
 		btn_GetData.setBounds(24, 113, 89, 23);
 		panel.add(btn_GetData);
+		btn_GetData.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getData();
+			}
+		});
 		
 		JButton btn_Save = new JButton("Save");
 		btn_Save.setBounds(24, 11, 89, 23);
 		panel.add(btn_Save);
-		
-		
-		JButton btn_New = new JButton("New");
-		btn_New.setBounds(24, 45, 89, 23);
-		panel.add(btn_New);
-		
-		JButton btn_Delete = new JButton("Delete");
-		btn_Delete.setBounds(24, 79, 89, 23);
-		panel.add(btn_Delete);
 		btn_Save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				saveAction();
 			}
 		});
+		
+		
+		JButton btn_New = new JButton("New");
+		btn_New.setBounds(24, 45, 89, 23);
+		panel.add(btn_New);
+		btn_New.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				clearFields();
+			}
+		});
+		
+		JButton btn_Delete = new JButton("Delete");
+		btn_Delete.setBounds(24, 79, 89, 23);
+		panel.add(btn_Delete);
+		btn_Delete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				deletePatient();
+			}
+		});
+		
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(10, 11, 321, 453);
@@ -238,7 +249,8 @@ private void saveAction() {
         int age =  Integer.parseInt(text_Age.getText());
         String sex = String.valueOf(combo_sex.getSelectedItem());
         String blood = String.valueOf(combo_blood.getSelectedItem());
-        Patient p = new Patient(amka, text_Sname.getText(), text_Name.getText(), text_Address.getText(), phone, text_Email.getText(), age, sex, blood, "insurance", text_Info.getText());
+        p = new Patient(amka, text_Sname.getText(), text_Name.getText(), text_Address.getText(), phone, text_Email.getText(), age, sex, blood, "insurance", text_Info.getText());
+        p.save(p);
 		System.out.println(sex);
 		System.out.println(blood);
 	}
@@ -246,7 +258,7 @@ private void saveAction() {
 
 private void getData() {
 	
-	Patient p = Patient.search(text_Amka.getText());
+	p = Patient.search(text_Amka.getText());
     text_Address.setText(p.getAddress());
     text_Age.setText(String.valueOf(p.getAge()));
     text_Email.setText(p.getEmail());
@@ -255,6 +267,30 @@ private void getData() {
     text_Sname.setText(p.getLastname());
     text_Name.setText(p.getFirstname());
 	
+}
+
+private void clearFields() {
+	
+	text_Address.setText("");
+    text_Age.setText("");
+    text_Email.setText("");
+    text_Phone.setText("");
+    text_Info.setText("");
+    text_Sname.setText("");
+    text_Name.setText("");	
+}
+
+private void deletePatient() {
+	
+	p.delete(p);
+	text_Address.setText("");
+    text_Age.setText("");
+    text_Email.setText("");
+    text_Phone.setText("");
+    text_Info.setText("");
+    text_Sname.setText("");
+    text_Name.setText("");
 	
 }
+
 }

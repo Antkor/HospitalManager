@@ -19,6 +19,7 @@ public class Doctor_GUI extends JFrame {
 	private JTextField text_ArMitr;
 	private JComboBox combo_Sp;
 	private JComboBox combo_dep;
+	private Doctor d;
 
 	/**
 	 * Launch the application.
@@ -66,10 +67,20 @@ public class Doctor_GUI extends JFrame {
 		JButton btnNewButton_1 = new JButton("Delete");
 		btnNewButton_1.setBounds(21, 56, 89, 23);
 		panel.add(btnNewButton_1);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				deleteDoctor();
+			}
+		});
 		
 		JButton btnNewButton_2 = new JButton("Get Info");
 		btnNewButton_2.setBounds(21, 90, 89, 23);
 		panel.add(btnNewButton_2);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				getData();
+			}
+		});
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(10, 11, 209, 257);
@@ -141,8 +152,8 @@ public class Doctor_GUI extends JFrame {
 	        return;
 	         }
 	     
-	      if (text_ArMitr.equals("")) {
-	        JOptionPane.showMessageDialog( null, "Please enter A.M.K.A");
+	      if (text_ArMitr.getText().equals("")) {
+	        JOptionPane.showMessageDialog( null, "Please enter AM");
 	        return;
 	         }
 	       
@@ -184,16 +195,27 @@ public class Doctor_GUI extends JFrame {
 			else if(dep == "ΩΡΛ") {
 				department = 10;
 			}
-	        Doctor d = new Doctor(arMitr, text_Name.getText(), text_Sname.getText(), text_Phone.getText(), sp , department);
+	        d = new Doctor(arMitr, text_Name.getText(), text_Sname.getText(), text_Phone.getText(), sp , department);
+	        d.save(d);
 		}
 	
 	private void getData() {
 		
-		Doctor d = Doctor.search(Integer.parseInt(text_ArMitr.getText()));
+		d = Doctor.search(Integer.parseInt(text_ArMitr.getText()));
 	    text_Name.setText(d.getFirstname());
 	    text_Sname.setText(d.getLastname());
 	    text_Phone.setText(d.getTelephone());
 		
 		
+	}
+	
+	private void deleteDoctor() {
+		
+		d.delete(d);
+		text_Name.setText("");
+	    text_Sname.setText("");
+	    text_Phone.setText("");
+	    text_ArMitr.setText("");
+
 	}
 }

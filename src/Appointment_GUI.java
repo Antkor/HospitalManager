@@ -26,6 +26,7 @@ public class Appointment_GUI extends JFrame{
 	private JTextField text_AM;
 	private JTextField text_INFO;
 	private JComboBox comboBox;
+	private Appointment a;
 
 	/**
 	 * Launch the application.
@@ -91,7 +92,7 @@ public class Appointment_GUI extends JFrame{
 		JButton btnNewButton = new JButton("Save");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				saveAction();
 			}
 		});
 		btnNewButton.setBounds(8, 16, 89, 23);
@@ -100,6 +101,11 @@ public class Appointment_GUI extends JFrame{
 		JButton btnNewButton_1 = new JButton("Delete");
 		btnNewButton_1.setBounds(107, 16, 89, 23);
 		panel.add(btnNewButton_1);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				deleteAppointment();
+			}
+		});
 		
 		JButton btnNewButton_2 = new JButton("Get Info");
 		btnNewButton_2.setBounds(206, 16, 89, 23);
@@ -158,7 +164,7 @@ public class Appointment_GUI extends JFrame{
 private void saveAction() {
 		
 	    if (text_AM.getText().equals("")) {
-	        JOptionPane.showMessageDialog(null,"Please enter Registration Number");
+	        JOptionPane.showMessageDialog(null,"Please enter AM");
 	        return;
 	         }
 	     if (text_AMKA.getText().equals("")) {
@@ -166,7 +172,7 @@ private void saveAction() {
 	        return;
 	         }
 	     
-	      if (text_Date.equals("")) {
+	      if (text_Date.getText().equals("")) {
 	        JOptionPane.showMessageDialog( null, "Please enter Date");
 	        return;
 	         }
@@ -185,7 +191,18 @@ private void saveAction() {
 				e.printStackTrace();
 			}
 	        String time = String.valueOf(comboBox.getSelectedItem());
-	        Appointment d = new Appointment(date,time, text_AMKA.getText(), Integer.parseInt(text_AM.getText()), text_INFO.getText());
+	        a = new Appointment(date,time, text_AMKA.getText(), Integer.parseInt(text_AM.getText()), text_INFO.getText());
+	        a.save(a);
 		}
+
+private void deleteAppointment() {
+	
+	a.delete(a);
+	text_AM.setText("");
+    text_AMKA.setText("");
+    text_Date.setText("");
+    text_INFO.setText("");
+}
+
 
 }
