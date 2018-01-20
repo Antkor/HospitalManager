@@ -186,6 +186,23 @@ public class DbConnector {
 
 	}
 	
+	public void deleteAppointment(Appointment a) {
+		openConnection();
+		String query = "DELETE FROM appointment WHERE id = ? ";
+		java.sql.PreparedStatement pstmt = null;
+
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, p.getAmka());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+
+		closeConnection();
+
+	}
+	
 	public void saveDoctor(Doctor d) {		
 		openConnection();
 				
@@ -206,6 +223,31 @@ public class DbConnector {
 			pstmt.setString(5, d.getTelephone());
 			pstmt.setString(6, d.getSpeciality());
 			pstmt.setInt(7, d.getDepartment());
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+
+		closeConnection();
+	}
+	
+	public void saveAppointment(Appointment a) {		
+		openConnection();
+				
+		String query = "INSERT INTO `appointment` (`date`, `time`, `notes`, `patient_amka`, `doctor_id`) "
+				+ "VALUES (?, ?, ?, ?) ";
+		java.sql.PreparedStatement pstmt = null;
+
+		try {
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setDate(1, (Date) a.getDay());
+			pstmt.setString(1, a.getTime());
+			pstmt.setString(2, a.getInfo());
+			pstmt.setString(3, a.getAmkaPatient());
+			pstmt.setInt(4, a.getArMitrwoyDoctor());
 			
 			pstmt.executeUpdate();
 			
