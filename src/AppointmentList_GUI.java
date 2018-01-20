@@ -13,6 +13,7 @@ public class AppointmentList_GUI {
 	private JFrame frame;
 	private JTable table;
 	private DefaultTableModel tableModel;
+	private JScrollPane scrollPane;
 	
 
 
@@ -64,7 +65,7 @@ public class AppointmentList_GUI {
 		scrollPane.setBounds(10, 45, 796, 378);
 		frame.getContentPane().add(scrollPane);
 		
-		table = new JTable();
+		table = new JTable(tableModel);
 		scrollPane.setViewportView(table);
 	}
 	
