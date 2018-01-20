@@ -19,8 +19,8 @@ import javax.swing.border.TitledBorder;
 public class Appointment_GUI extends JFrame{
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField text_patientN;
+	private JTextField text_doctorN;
 	private JTextField text_Date;
 	private JTextField text_AMKA;
 	private JTextField text_AM;
@@ -65,15 +65,15 @@ public class Appointment_GUI extends JFrame{
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(6, 41, 128, 142);
-		panel_1.add(textField);
-		textField.setColumns(10);
+		text_patientN = new JTextField();
+		text_patientN.setBounds(6, 41, 128, 142);
+		panel_1.add(text_patientN);
+		text_patientN.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(6, 210, 128, 127);
-		panel_1.add(textField_1);
-		textField_1.setColumns(10);
+		text_doctorN = new JTextField();
+		text_doctorN.setBounds(6, 210, 128, 127);
+		panel_1.add(text_doctorN);
+		text_doctorN.setColumns(10);
 		
 		JLabel label = new JLabel("\u0391\u03C3\u03B8\u03B5\u03BD\u03AE\u03C2");
 		label.setBounds(45, 26, 49, 14);
@@ -108,6 +108,13 @@ public class Appointment_GUI extends JFrame{
 		});
 		
 		JButton btnNewButton_2 = new JButton("Get Info");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				text_doctorN.setText(AppointmentList.getNameByAm(Integer.parseInt(text_AM.getText())));
+				text_patientN.setText(AppointmentList.getNamebyAmka(text_AMKA.getText()));
+				
+			}
+		});
 		btnNewButton_2.setBounds(206, 16, 89, 23);
 		panel.add(btnNewButton_2);
 		
