@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
@@ -19,12 +20,12 @@ import javax.swing.border.TitledBorder;
 public class Appointment_GUI extends JFrame{
 
 	private JFrame frame;
-	private JTextField text_patientN;
-	private JTextField text_doctorN;
+	private JTextArea text_patientN;
+	private JTextArea text_doctorN;
 	private JTextField text_Date;
 	private JTextField text_AMKA;
 	private JTextField text_AM;
-	private JTextField text_INFO;
+	private JTextArea text_INFO;
 	private JComboBox comboBox;
 	private Appointment a;
 
@@ -65,12 +66,12 @@ public class Appointment_GUI extends JFrame{
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
-		text_patientN = new JTextField();
+		text_patientN = new JTextArea();
 		text_patientN.setBounds(6, 41, 128, 142);
 		panel_1.add(text_patientN);
 		text_patientN.setColumns(10);
 		
-		text_doctorN = new JTextField();
+		text_doctorN = new JTextArea();
 		text_doctorN.setBounds(6, 210, 128, 127);
 		panel_1.add(text_doctorN);
 		text_doctorN.setColumns(10);
@@ -133,7 +134,7 @@ public class Appointment_GUI extends JFrame{
 		panel.add(text_AM);
 		text_AM.setColumns(10);
 		
-		text_INFO = new JTextField();
+		text_INFO = new JTextArea();
 		text_INFO.setBounds(101, 185, 183, 168);
 		panel.add(text_INFO);
 		text_INFO.setColumns(10);
